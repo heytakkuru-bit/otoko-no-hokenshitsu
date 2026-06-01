@@ -104,7 +104,7 @@ export const PERSONALITY_TYPES: OtokoPersonalityType[] = [
     axisLabel: '外剛・現実・理性・柔軟',
     category: '強い系',
     innateElement: '金',
-    characterImageFile: 'ippiki-okami.png',
+    characterImageFile: 'ippikiokami.png',
     traits: {
       characteristics: [
         '現場の空気を読む能力が抜群で、咄嗟の対応が誰より速い',
@@ -136,7 +136,7 @@ export const PERSONALITY_TYPES: OtokoPersonalityType[] = [
     axisLabel: '内剛・現実・理性・計画',
     category: '強い系',
     innateElement: '土',
-    characterImageFile: 'furutsuwamouno.png',
+    characterImageFile: 'furuyowamono.png',
     traits: {
       characteristics: [
         '長年の経験から培った「正しいやり方」への強いこだわり',
@@ -200,7 +200,7 @@ export const PERSONALITY_TYPES: OtokoPersonalityType[] = [
     axisLabel: '外剛・現実・感情・計画',
     category: '優しい系',
     innateElement: '土',
-    characterImageFile: 'otosan.png',
+    characterImageFile: 'otousan.png',
     traits: {
       characteristics: [
         '周囲の調和を保つことに全力を注ぎ、誰も孤立させない',
@@ -264,7 +264,7 @@ export const PERSONALITY_TYPES: OtokoPersonalityType[] = [
     axisLabel: '内剛・現実・感情・計画',
     category: '優しい系',
     innateElement: '木',
-    characterImageFile: 'iyashi.png',
+    characterImageFile: 'iyashikei.png',
     traits: {
       characteristics: [
         '細かいことに気がつき、誰も言わないうちに動いている',
@@ -424,7 +424,7 @@ export const PERSONALITY_TYPES: OtokoPersonalityType[] = [
     axisLabel: '内剛・現実・感情・柔軟',
     category: '自由系',
     innateElement: '水',
-    characterImageFile: 'fuuraibo.png',
+    characterImageFile: 'fuiraibo.png',
     traits: {
       characteristics: [
         '鋭い感受性と美的センスを持ち、言葉より行動と作品で気持ちを表す',
@@ -456,7 +456,7 @@ export const PERSONALITY_TYPES: OtokoPersonalityType[] = [
     axisLabel: '外剛・直感・感情・柔軟',
     category: '自由系',
     innateElement: '木',
-    characterImageFile: 'hatsumei-ka.png',
+    characterImageFile: 'hatsumei.png',
     traits: {
       characteristics: [
         '可能性とアイデアに溢れ、出会う人全員に何らかの才能を見つける',
@@ -520,7 +520,7 @@ export const PERSONALITY_TYPES: OtokoPersonalityType[] = [
     axisLabel: '内剛・直感・感情・柔軟',
     category: '自由系',
     innateElement: '木',
-    characterImageFile: 'yumeoibito.png',
+    characterImageFile: 'yumeoi.png',
     traits: {
       characteristics: [
         '深い理想と強い価値観を持ち、それに反することには体が拒絶する',

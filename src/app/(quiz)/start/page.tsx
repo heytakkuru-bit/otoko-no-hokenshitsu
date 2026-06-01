@@ -1,6 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 const STORAGE_KEY = 'sachiko_quiz';
 
@@ -32,16 +33,19 @@ export default function StartPage() {
       style={{ letterSpacing: '0.05em' }}
     >
       <div>
+        {/* 集合画像 */}
+        <div style={{ maxWidth: '400px', margin: '0 auto', width: '100%' }} className="mb-6">
+          <Image
+            src="/characters/group.png"
+            alt="16漢キャラクター集合"
+            width={400}
+            height={300}
+            style={{ width: '100%', height: 'auto', display: 'block' }}
+            priority
+          />
+        </div>
+
         <div className="text-center mb-8">
-          <div
-            className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl"
-            style={{
-              background: 'rgba(200,169,110,0.12)',
-              border: '1px solid rgba(200,169,110,0.35)',
-            }}
-          >
-            🩹
-          </div>
           <h1
             className="font-bold mb-1"
             style={{ color: '#C8A96E', fontSize: '1.6rem', fontFamily: 'serif' }}
