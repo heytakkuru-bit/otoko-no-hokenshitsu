@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import CharacterImage from '@/components/otoko/CharacterImage';
+import Image from 'next/image';
 import { clearAnswers } from '@/lib/otoko/scoring';
 
 export default function DiagnosisTopPage() {
@@ -38,25 +38,17 @@ export default function DiagnosisTopPage() {
         </p>
       </div>
 
-      {/* Character Image */}
-      <div className="flex justify-center py-4 relative">
-        <div className="relative">
-          <CharacterImage
-            filename="otoko-tamotsu.png"
-            alt="漢保（オトコタモツ）"
-            size={200}
-            isHero
+      {/* Group Image */}
+      <div className="px-6 py-4">
+        <div style={{ maxWidth: '400px', margin: '0 auto', width: '100%' }}>
+          <Image
+            src="/characters/group.png"
+            alt="16漢キャラクター集合"
+            width={400}
+            height={300}
+            style={{ width: '100%', height: 'auto', display: 'block', borderRadius: '12px' }}
+            priority
           />
-          {/* Decorative rings */}
-          <div className="absolute inset-0 rounded-full border border-[#c9a04e]/20 scale-110 pointer-events-none" />
-          <div className="absolute inset-0 rounded-full border border-[#c9a04e]/10 scale-125 pointer-events-none" />
-          {/* Bandaid decoration */}
-          <div
-            className="absolute -bottom-1 -right-1 bg-[#b22222] rounded-sm px-2 py-0.5 rotate-12 shadow-lg"
-            style={{ fontSize: '10px', color: '#f5f0e8' }}
-          >
-            ✚ 漢保
-          </div>
         </div>
       </div>
 

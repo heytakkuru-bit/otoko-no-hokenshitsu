@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 type Phase = 'dark' | 'icon' | 'welcome' | 'ready';
 
@@ -59,6 +60,18 @@ export default function Home() {
               : 'opacity-0 translate-y-4'
           }`}
         >
+          {/* 集合画像 */}
+          <div style={{ maxWidth: '400px', margin: '0 auto', width: '100%' }} className="mb-4">
+            <Image
+              src="/characters/group.png"
+              alt="16漢キャラクター集合"
+              width={400}
+              height={300}
+              style={{ width: '100%', height: 'auto', display: 'block' }}
+              priority
+            />
+          </div>
+
           <h1
             className="font-bold mb-2"
             style={{ fontSize: '2.8rem', color: '#C8A96E', fontFamily: 'serif' }}
