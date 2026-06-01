@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --snack-bg: #0D0705;
+  --snack-surface: #1A0A04;
+  --snack-card: #2A1505;
+  --snack-red: #8B0000;
+  --snack-gold: #D4AF37;
+  --snack-cream: #FDF8F0;
+  --font-noto-sans-jp: '';
+}
+
+body {
+  background-color: var(--snack-bg);
+  color: var(--snack-cream);
+  font-family: var(--font-noto-sans-jp), 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  20% { transform: rotate(-15deg); }
+  40% { transform: rotate(15deg); }
+  60% { transform: rotate(-12deg); }
+  80% { transform: rotate(12deg); }
+}
+
+.bell-ring {
+  animation: wiggle 0.6s ease-in-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
