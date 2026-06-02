@@ -8,7 +8,7 @@ import { calculateOtokoType, saveAnswers, type OtokoAnswers } from '@/lib/otoko/
 const LOADING_LINES = [
   '気を測定中…',
   '十六の漢と照合中…',
-  'お前の本質を見極めてるぞ…',
+  '君の本質を見極めてるぞ…',
   'もう少し待ってくれ…',
 ];
 

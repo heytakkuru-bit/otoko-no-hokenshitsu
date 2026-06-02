@@ -78,7 +78,7 @@ export default function OtokoResultPage({ params }: { params: { type: string } }
           </div>
           <div>
             <p className="text-[#c9a04e] text-lg font-bold mb-2">漢保が診断中だ…</p>
-            <p className="text-[#f5f0e8]/40 text-sm">十六の漢から、お前の本質を見極めてる</p>
+            <p className="text-[#f5f0e8]/40 text-sm">十六の漢から、君の本質を見極めてる</p>
           </div>
           <div className="flex gap-1 justify-center">
             {[0, 1, 2].map((i) => (
@@ -107,7 +107,7 @@ export default function OtokoResultPage({ params }: { params: { type: string } }
           style={{ opacity: 0 }}
         >
           <p className="text-[#f5f0e8]/50 text-sm tracking-widest uppercase">
-            お前は…
+            君は…
           </p>
           <div
             className="text-7xl font-black"
@@ -184,7 +184,7 @@ export default function OtokoResultPage({ params }: { params: { type: string } }
         <CharacterImage
           filename={typeData.characterImageFile}
           alt={typeData.nickname}
-          size={160}
+          size={260}
           isHero
         />
       </div>
@@ -282,7 +282,7 @@ export default function OtokoResultPage({ params }: { params: { type: string } }
               key={ct.slug}
               className="flex items-start gap-3 bg-[#1e2d3d] border border-[#c9a04e]/10 rounded-xl p-3"
             >
-              <CharacterImage filename={`${ct.slug}.png`} alt={ct.nickname} size={44} />
+              <CharacterImage filename={TYPE_MAP.get(ct.slug)?.characterImageFile ?? `${ct.slug}.png`} alt={ct.nickname} size={44} />
               <div className="flex-1 min-w-0">
                 <p className="text-[#c9a04e] text-sm font-bold">{ct.nickname}</p>
                 <p className="text-[#f5f0e8]/50 text-xs leading-relaxed mt-0.5">{ct.reason}</p>

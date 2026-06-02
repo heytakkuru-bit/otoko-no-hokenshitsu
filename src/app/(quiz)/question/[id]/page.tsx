@@ -13,7 +13,7 @@ const STORAGE_KEY = 'sachiko_quiz';
 
 const LOADING_LINES = [
   'ふむ……',
-  'お前の場合は……',
+  '君の場合は……',
   'なるほどな……',
   'ちょっと待ってくれ……',
   '見えてきたぞ……',
@@ -104,7 +104,7 @@ export default function QuestionPage({ params }: { params: { id: string } }) {
             {loadingLine}
           </p>
           <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.85rem' }}>
-            お前の漢を診てる。少し待ってくれ。
+            君の漢を診てる。少し待ってくれ。
           </p>
         </div>
       </div>

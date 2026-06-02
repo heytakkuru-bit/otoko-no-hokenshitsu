@@ -145,7 +145,7 @@ export const QUESTIONS: Question[] = [
     axis: '理性 ／ 感情',
     category: '映画・物語の楽しみ方',
     text: '映画や本を楽しんだ後、誰かと感想を話すとき自分は？',
-    midComment: '……お前、なかなか面白い漢だな。あと少しだ。',
+    midComment: '……君、なかなか面白い漢だな。あと少しだ。',
     answers: [
       { value: 'A', text: '設定の矛盾・構成・伏線回収を語りたい' },
       { value: 'B', text: 'キャラクターの気持ちや感動シーンについて話したい' },

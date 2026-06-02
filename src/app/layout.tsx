@@ -11,7 +11,7 @@ const notoSansJP = Noto_Sans_JP({
 
 export const metadata: Metadata = {
   title: '漢の保健室',
-  description: '十人十漢 — お前はどの漢だ？16タイプ診断',
+  description: '十人十漢 — 君はどの漢だ？16タイプ診断',
 };
 
 export default function RootLayout({

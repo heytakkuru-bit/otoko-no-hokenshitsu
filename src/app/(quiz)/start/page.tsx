@@ -68,7 +68,7 @@ export default function StartPage() {
             ちょっとここに座ってくれ。
           </p>
           <p style={{ color: '#C8A96E', fontWeight: 'bold', fontSize: '0.9rem', lineHeight: 2 }}>
-            お前がどんな漢なのか、一緒に確かめてみようぜ。
+            君がどんな漢なのか、一緒に確かめてみようぜ。
           </p>
           <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.78rem', lineHeight: 2, paddingTop: '4px' }}>
             正直に答えてくれればいい。それだけでいい。
