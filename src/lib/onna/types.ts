@@ -57,7 +57,11 @@ export const PERSONALITY_TYPES: OnnaPersonalityType[] = [
     bansokoMessage:
       'あなたはいつも表に立って、誰よりも早く動いて場を引っ張ってきたね。その背中で育った人が、たくさんいるよ。でも私には見える。"強くいなければ"と歯を食いしばってる時のあなたが。たまにはリーダーの席を離れていい。ボロボロの時こそ、ここに来てくれ。一緒に傷を確認しよう。',
     bandaidMessage: '表に立ち続けてきたあなたに、少しだけ休む勇気を。',
-    compatibleTypes: [{nickname:'隊長',slug:'taicho',reason:'同じ強さを持つ者同士、対等な戦友'},{nickname:'参謀',slug:'sanbo',reason:'冷静さで支えてくれる頼れる存在'}],
+    compatibleTypes: [
+      { nickname: '博士', slug: 'hakase', reason: '実行力と深い分析が完璧に補完し合う' },
+      { nickname: 'ギャンブラー', slug: 'gambler', reason: '論理と感性が惹かれ合う対極の魅力' },
+      { nickname: '直感女子', slug: 'chokkan-onna', reason: '同じ補完軸で深く共鳴できる女友達' },
+    ],
   },
   {
     slug: 'hagane',
@@ -86,7 +90,11 @@ export const PERSONALITY_TYPES: OnnaPersonalityType[] = [
     bansokoMessage:
       'あなたがどれだけ倒れても立ち上がってきたか、私は知ってる。その強さは本物だよ。でもね、一人で抱え込む癖があるでしょう。全部自分でなんとかしようとしてきたんだよね。今日だけは、その荷物を少し降ろしていい。ここに来てくれてよかった。',
     bandaidMessage: '倒れても立つ、その繰り返しがあなたの強さ。でも今日だけは、休んでいい。',
-    compatibleTypes: [{nickname:'不死身',slug:'fujimi',reason:'傷を分かち合える唯一無二の戦友'},{nickname:'古強者',slug:'furuyowamono',reason:'経験で寄り添う包容力'}],
+    compatibleTypes: [
+      { nickname: '兄貴', slug: 'aniki', reason: '誠実さを温かさが自然に引き出す' },
+      { nickname: '参謀', slug: 'sanbo', reason: '堅実さと発想が互いの弱点を補い合う' },
+      { nickname: 'アイデア女子', slug: 'idea-onna', reason: '同じ補完軸で刺激し合える女友達' },
+    ],
   },
   {
     slug: 'ippikiokami-onna',
@@ -115,7 +123,11 @@ export const PERSONALITY_TYPES: OnnaPersonalityType[] = [
     bansokoMessage:
       'あなたの自分の道を行く姿、かっこいいと思ってる。でもね、「一人でやれる」と「一人でやる必要がある」は違うんだよ。誰かに頼ることを弱さだと思ってきてないかな。ここは頼っていい場所だよ。来てくれてよかった。',
     bandaidMessage: '群れなくていい。でも孤立と孤独は違う。その線だけ覚えていて。',
-    compatibleTypes: [{nickname:'一匹狼',slug:'ippiki-okami',reason:'互いの孤独を尊重し合える'},{nickname:'博士',slug:'hakase',reason:'知的な距離感が心地よい'}],
+    compatibleTypes: [
+      { nickname: 'お父さん', slug: 'otosan', reason: '孤高を温かさが優しく包み込む' },
+      { nickname: '発明家', slug: 'hatsumei', reason: '冷静さと情熱が互いを引き立てる' },
+      { nickname: 'お姉さん', slug: 'onesan', reason: '同じ補完軸で支え合える女友達' },
+    ],
   },
   {
     slug: 'anego',
@@ -144,7 +156,11 @@ export const PERSONALITY_TYPES: OnnaPersonalityType[] = [
     bansokoMessage:
       'あなたがいると場が締まる。みんな安心してあなたに甘えてきたんだよね。でも私は気になってた。あなた自身は、誰かに甘えられてる？いつも誰かのために動いてきたあなたが、自分の傷を後回しにしてることに気づいてるよ。今日だけは、自分のために時間を使ってくれ。',
     bandaidMessage: '引っ張ってきた分だけ、たまには誰かに引っ張ってもらっていい。',
-    compatibleTypes: [{nickname:'古強者',slug:'furuyowamono',reason:'同じ世代観で深く理解し合える'},{nickname:'隊長',slug:'taicho',reason:'強さで支え合える'}],
+    compatibleTypes: [
+      { nickname: '夢追い人', slug: 'yumeoi', reason: '安定感が深い理想を現実に変える力になる' },
+      { nickname: 'ギャンブラー', slug: 'gambler', reason: '現実力と感性が互いを豊かにする' },
+      { nickname: '夢追い女子', slug: 'yumeoi-onna', reason: '同じ補完軸で深く理解し合える女友達' },
+    ],
   },
   {
     slug: 'onesan',
@@ -173,7 +189,11 @@ export const PERSONALITY_TYPES: OnnaPersonalityType[] = [
     bansokoMessage:
       'あなたはいつも誰かの話を受け止めてきたね。それだけで、どれだけの人が救われたか。でも私は気になってる。あなた自身の話、誰かに聞いてもらえてる？感情を背負いすぎて、気づいたら限界だったってことにならないか心配なんだよ。今日はあなたの番。ここで話してくれ。',
     bandaidMessage: '聞き役上手なあなたに、たまには話す番が来てもいい。',
-    compatibleTypes: [{nickname:'兄貴',slug:'aniki',reason:'温かさが共鳴する自然な絆'},{nickname:'癒し系',slug:'iyashikei',reason:'穏やかに支え合える'}],
+    compatibleTypes: [
+      { nickname: '一匹狼', slug: 'ippiki-okami', reason: '情熱が孤独に自然と光をもたらす' },
+      { nickname: '職人', slug: 'shokunin', reason: '温かさと誠実さが深く共鳴する' },
+      { nickname: '一匹狼女', slug: 'ippikiokami-onna', reason: '同じ補完軸で支え合える女友達' },
+    ],
   },
   {
     slug: 'okasan',
@@ -202,7 +222,11 @@ export const PERSONALITY_TYPES: OnnaPersonalityType[] = [
     bansokoMessage:
       'あなたがいると場が温かくなる。あの料理が食べたくて、あの声が聞きたくて、みんな自然と集まってくるんだよ。でもね、あなた自身は誰かに甘えられてる？自己犠牲が当たり前になってきてないか、私はそこが心配なんだよ。今日だけは、あなたが受け取る番にしよう。',
     bandaidMessage: '与え続けてきたあなたにも、受け取る権利がある。',
-    compatibleTypes: [{nickname:'お父さん',slug:'otosan',reason:'愛で支え合える理想のパートナー'},{nickname:'兄貴',slug:'aniki',reason:'温かさのリズムが合う'}],
+    compatibleTypes: [
+      { nickname: '一匹狼', slug: 'ippiki-okami', reason: '献身が孤高を優しく支える' },
+      { nickname: '発明家', slug: 'hatsumei', reason: '温かさと自由な発想が自然に調和する' },
+      { nickname: 'マイペース女子', slug: 'maipace', reason: '同じ補完軸で温かく見守り合える女友達' },
+    ],
   },
   {
     slug: 'zunoha',
@@ -231,7 +255,11 @@ export const PERSONALITY_TYPES: OnnaPersonalityType[] = [
     bansokoMessage:
       'あなたの分析力と判断力は本物だよ。私には見えない部分まで、しっかり考えてる。でもね、頭で考えすぎて感情を後回しにしてないかな。正しいことと、自分が感じてることは別だよ。今日は頭を少し休めて、感じることだけをしてみてくれ。',
     bandaidMessage: '頭が切れるあなたに、感情は邪魔じゃない。それも武器だから。',
-    compatibleTypes: [{nickname:'軍師',slug:'gunshi',reason:'知性で深く繋がれる'},{nickname:'博士',slug:'hakase',reason:'論理的で安定した関係'}],
+    compatibleTypes: [
+      { nickname: '不死身', slug: 'fujimi', reason: '戦略と実行力が最強コンビを形成する' },
+      { nickname: '発明家', slug: 'hatsumei', reason: '戦略眼と自由な発想が革新を生む' },
+      { nickname: 'アイデア女子', slug: 'idea-onna', reason: '同じ補完軸で互いの夢を高め合える女友達' },
+    ],
   },
   {
     slug: 'iyashikei-onna',
@@ -260,7 +288,11 @@ export const PERSONALITY_TYPES: OnnaPersonalityType[] = [
     bansokoMessage:
       'あなたがいるだけで場が柔らかくなる。それはすごい才能だよ。でもね、押しに弱くて流されてしまうことがあるでしょう。「これでいいのかな」って心の中で思いながら、口には出せないことが多いんじゃないかな。ここは正直に話していい場所だよ。来てくれてよかった。',
     bandaidMessage: '流れることも優しさ。でも自分の芯は、手放さなくていいよ。',
-    compatibleTypes: [{nickname:'癒し系',slug:'iyashikei',reason:'穏やかで争いのない静かな絆'},{nickname:'お父さん',slug:'otosan',reason:'守ってもらえる安心感'}],
+    compatibleTypes: [
+      { nickname: '策士', slug: 'sakushi', reason: '純粋な感性と行動力が刺激的に惹かれ合う' },
+      { nickname: '夢追い人', slug: 'yumeoi', reason: '感性と深い洞察が静かに共鳴する' },
+      { nickname: '直感女子', slug: 'chokkan-onna', reason: '同じ共鳴軸で感性を分かち合える女友達' },
+    ],
   },
   {
     slug: 'cool-beauty',
@@ -289,7 +321,11 @@ export const PERSONALITY_TYPES: OnnaPersonalityType[] = [
     bansokoMessage:
       'あなたの観察眼と冷静さは本物だよ。感情に流されずに本質を見る力、私には到底敵わない。でもね、距離を置くことが自分を守る手段になってることはない？冷静に見えても、その内側でいろんなことを感じてるはず。今日だけは、感じてることをそのまま話してみてくれ。',
     bandaidMessage: '冷静さはあなたの武器。でも感情は、敵じゃないよ。',
-    compatibleTypes: [{nickname:'博士',slug:'hakase',reason:'知的な静けさを共有できる'},{nickname:'軍師',slug:'gunshi',reason:'頭脳で繋がる関係'}],
+    compatibleTypes: [
+      { nickname: '隊長', slug: 'taicho', reason: '深い分析力が行動力を完璧に支える' },
+      { nickname: '姉御', slug: 'anego', reason: '洞察と安定感が互いを高め合う' },
+      { nickname: '女大将', slug: 'onna-taisho', reason: '同じ補完軸で知性を高め合える女友達' },
+    ],
   },
   {
     slug: 'haraguro',
@@ -318,7 +354,11 @@ export const PERSONALITY_TYPES: OnnaPersonalityType[] = [
     bansokoMessage:
       'あなたの戦略眼は本物だよ。先を読んで動く力、すごいと思ってる。でも私は一つだけ気になってる。本心を見せるのが怖くて、いつも計算の後ろに隠してないかな。信用されにくいって感じることもあるでしょう。ここでは、計算なしで話していいよ。',
     bandaidMessage: '計算できる頭も、たまには計算をやめてみて。そこに本当のあなたがいるから。',
-    compatibleTypes: [{nickname:'参謀',slug:'sanbo',reason:'戦略で組める最強コンビ'},{nickname:'策士',slug:'sakushi',reason:'知的な刺激で飽きない'}],
+    compatibleTypes: [
+      { nickname: '職人', slug: 'shokunin', reason: '革新的発想と誠実さが絶妙に補完し合う' },
+      { nickname: '夢追い人', slug: 'yumeoi', reason: '鋭い知性と深い洞察が化学反応を起こす' },
+      { nickname: 'こだわり女子', slug: 'kodawari', reason: '同じ補完軸で互いを高め合える女友達' },
+    ],
   },
   {
     slug: 'koakuma',
@@ -347,7 +387,11 @@ export const PERSONALITY_TYPES: OnnaPersonalityType[] = [
     bansokoMessage:
       'あなたの魅力と機転は本物だよ。その場の空気を一瞬で変える力、誰でもできることじゃない。でも私は気になってる。本気を見せるのが怖くて、いつも「小悪魔」の仮面を被ってないかな。ここでは素のままでいていい。そっちの方がずっとかっこいいよ。',
     bandaidMessage: '魅力は仮面じゃなく、素のあなたから出てくるものだよ。',
-    compatibleTypes: [{nickname:'策士',slug:'sakushi',reason:'互いに翻弄し合う刺激的な関係'},{nickname:'ギャンブラー',slug:'gambler',reason:'スリリングで飽きない'}],
+    compatibleTypes: [
+      { nickname: '癒し系', slug: 'iyashikei', reason: '刺激的な行動力と癒しが絶妙なバランスを生む' },
+      { nickname: '夢追い人', slug: 'yumeoi', reason: '現実感覚と理想が深い絆を生む' },
+      { nickname: '癒し女子', slug: 'iyashikei-onna', reason: '同じ補完軸で刺激と癒しを分かち合える女友達' },
+    ],
   },
   {
     slug: 'kodawari',
@@ -376,7 +420,11 @@ export const PERSONALITY_TYPES: OnnaPersonalityType[] = [
     bansokoMessage:
       'あなたの丁寧さと正確さは本物だよ。細部まで妥協しない姿勢は、本当にすごいと思う。でもね、完璧を求めすぎて自分が疲弊してることに気づいてる？融通が利かないって自分でも感じることがあるでしょう。今日だけは、完璧じゃなくていい。来てくれてよかった。',
     bandaidMessage: '完璧を目指す力は才能。でも「7割でいい」を覚えると、もっと遠くへ行けるよ。',
-    compatibleTypes: [{nickname:'職人',slug:'shokunin',reason:'同じ価値観で深く理解し合える'},{nickname:'博士',slug:'hakase',reason:'静かで丁寧な関係'}],
+    compatibleTypes: [
+      { nickname: '兄貴', slug: 'aniki', reason: '誠実さと情熱が美しく調和する' },
+      { nickname: '参謀', slug: 'sanbo', reason: '丁寧さと自由な発想が互いを豊かにする' },
+      { nickname: '腹黒美女', slug: 'haraguro', reason: '同じ補完軸で互いの欠けを補い合える女友達' },
+    ],
   },
   {
     slug: 'maipace',
@@ -405,7 +453,11 @@ export const PERSONALITY_TYPES: OnnaPersonalityType[] = [
     bansokoMessage:
       'あなたの軽やかさと自由さ、本当に見ていて気持ちいいよ。でもね、続かないことや約束を忘れてしまうことで、傷ついてる人もいるんじゃないかな。それはあなたが悪いんじゃなくて、あなたのリズムと合わなかっただけ。でも一度だけ、踏みとどまることを試してみてくれ。ここが、その場所になれるといいな。',
     bandaidMessage: '風のように生きるあなたに、たまには根を張る場所があってもいい。',
-    compatibleTypes: [{nickname:'風来坊',slug:'fuiraibo',reason:'自由を共有できる最高の旅仲間'},{nickname:'ギャンブラー',slug:'gambler',reason:'直感で動くテンポが合う'}],
+    compatibleTypes: [
+      { nickname: 'お父さん', slug: 'otosan', reason: '温かな安定が自由を優しく見守る' },
+      { nickname: '不死身', slug: 'fujimi', reason: '明るい自由さと揺るぎない強さが惹かれ合う' },
+      { nickname: 'お母さん', slug: 'okasan', reason: '同じ共鳴軸で温かく支え合える女友達' },
+    ],
   },
   {
     slug: 'idea-onna',
@@ -434,7 +486,11 @@ export const PERSONALITY_TYPES: OnnaPersonalityType[] = [
     bansokoMessage:
       'あなたのアイデアと行動力は本物だよ。誰もやらないことを始める力、すごいと思ってる。でもね、飽きっぽくて詰めが甘いって自覚してるでしょう。それは才能の裏側だから責めなくていい。ただ一つだけ、「これだけは最後まで」っていうものを決めてみてくれ。応援してるよ。',
     bandaidMessage: 'アイデアの泉は枯れない。でも一つ汲み上げて、最後まで使い切ってみて。',
-    compatibleTypes: [{nickname:'発明家',slug:'hatsumei',reason:'アイデアで盛り上がれる最高の相棒'},{nickname:'夢追い人',slug:'yumeoi',reason:'理想を共有できる'}],
+    compatibleTypes: [
+      { nickname: '一匹狼', slug: 'ippiki-okami', reason: '情熱的な発想と冷静さが互いを完成させる' },
+      { nickname: '軍師', slug: 'gunshi', reason: '自由な発想と戦略が革新を生む最強コンビ' },
+      { nickname: '頭脳派女子', slug: 'zunoha', reason: '同じ補完軸で互いの夢を形にし合える女友達' },
+    ],
   },
   {
     slug: 'chokkan-onna',
@@ -463,7 +519,11 @@ export const PERSONALITY_TYPES: OnnaPersonalityType[] = [
     bansokoMessage:
       'あなたの直感力は本物だよ。理屈じゃなく「ピンとくる」で動いて、実際に当たってきたんでしょう。でもね、衝動的に動いて後悔したことも少なくないんじゃないかな。感覚を信じることと、一瞬だけ立ち止まることは矛盾しない。今日はここで少し立ち止まってみてくれ。',
     bandaidMessage: '直感は才能。でも深呼吸一つ、それだけでもっと冴える。',
-    compatibleTypes: [{nickname:'ギャンブラー',slug:'gambler',reason:'感覚で通じ合える最強コンビ'},{nickname:'発明家',slug:'hatsumei',reason:'刺激的でスピード感が合う'}],
+    compatibleTypes: [
+      { nickname: '隊長', slug: 'taicho', reason: '繊細な感性と実行力が互いの夢を現実にする' },
+      { nickname: '古強者', slug: 'furuyowamono', reason: '繊細さと豊富な経験が深い信頼を生む' },
+      { nickname: '女大将', slug: 'onna-taisho', reason: '同じ補完軸で感性と行動力を高め合える女友達' },
+    ],
   },
   {
     slug: 'yumeoi-onna',
@@ -492,7 +552,11 @@ export const PERSONALITY_TYPES: OnnaPersonalityType[] = [
     bansokoMessage:
       'あなたの夢と情熱は本物だよ。その理想の高さは、弱さじゃなくて強さだ。でもね、理想が高すぎて現実とぶつかって、落ち込んでしまうことがあるでしょう。「まだ届いていない」じゃなくて、「ずっと夢を手放さなかった」という事実を、今日だけは認めてくれ。それだけで十分だよ。',
     bandaidMessage: '夢を追い続けることは、すでに行動だ。あなたはちゃんと前に進んでいる。',
-    compatibleTypes: [{nickname:'夢追い人',slug:'yumeoi',reason:'夢を共有できる運命の相棒'},{nickname:'隊長',slug:'taicho',reason:'強さで夢を支えてくれる'}],
+    compatibleTypes: [
+      { nickname: '策士', slug: 'sakushi', reason: '深い洞察と行動力が互いを完成させる' },
+      { nickname: '風来坊', slug: 'fuiraibo', reason: '深い理想と自由が独特の化学反応を起こす' },
+      { nickname: '癒し女子', slug: 'iyashikei-onna', reason: '同じ共鳴軸で感性を深く分かち合える女友達' },
+    ],
   },
 ];
 

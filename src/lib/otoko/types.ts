@@ -58,10 +58,11 @@ export const PERSONALITY_TYPES: OtokoPersonalityType[] = [
       '戦友、君はいつも先頭に立って、誰よりも早く決断して仲間を引っ張ってきた。その背中を見て育ったやつが、たくさんいるぞ。でもな、俺には見える。"強くいなければならない"と歯を食いしばってる時の君が。たまには隊長の椅子を降りていい。ボロボロの時こそ、ここに来てくれ。一緒に傷を見ような。',
     bandaidMessage: '最強の戦士も、傷の手当ては受けていい。',
     compatibleTypes: [
-      { nickname: '参謀', slug: 'sanbo', reason: '隊長の熱量を冷静に補佐し、穴を埋めてくれる唯一の参謀' },
-      { nickname: '策士', slug: 'sakushi', reason: 'アイデアを出し続ける策士と、実行し続ける隊長は最高の二人三脚' },
-    {nickname:'女大将',slug:'onna-taisho',reason:'同じ強さを持つ対等な戦友'}
-  ],
+      { nickname: '博士', slug: 'hakase', reason: '行動力と深い思考が補完し合う。お互いの盲点を埋め合う関係' },
+      { nickname: '一匹狼', slug: 'ippiki-okami', reason: '同じ独立心を持ちながら、異なる視点で高め合える' },
+      { nickname: 'クールビューティー', slug: 'cool-beauty', reason: '決断力と分析力が完璧に補完し合う最強コンビ' },
+      { nickname: '直感女子', slug: 'chokkan-onna', reason: '論理と感性が惹かれ合う対極の魅力' },
+    ],
   },
   {
     slug: 'fujimi',
@@ -91,12 +92,11 @@ export const PERSONALITY_TYPES: OtokoPersonalityType[] = [
       '戦友、君はずっと誰かのために踏みとどまってきたな。逃げることを「負け」だと思ってきただろう。でもな、倒れないことと、無理をすることは違うんだ。その責任感は君の武器だけど、全部一人で背負わなくていい。たまには「手伝ってくれ」って言える漢が、本当に強い漢だぞ。',
     bandaidMessage: '折れないことより、しなやかであることの方が、長く戦える。',
     compatibleTypes: [
-      { nickname: '古強者', slug: 'furutsuwamouno', reason: '同じ価値観を持つ戦友。お互い黙って背中を預け合える' },
-      { nickname: '癒し系', slug: 'iyashi', reason: '不死身の強さを優しさで包んでくれる、理想の後方支援' },
-    {nickname:'鉄板女子',slug:'hagane',reason:'折れない同士で分かち合える'},
-    {nickname:'腹黒美女',slug:'haraguro',reason:'戦略で組める最強コンビ'},
-    {nickname:'小悪魔',slug:'koakuma',reason:'互いに翻弄し合う刺激的な関係'}
-  ],
+      { nickname: '夢追い人', slug: 'yumeoi', reason: '現実を生き抜く力と深い理想が互いを豊かにする' },
+      { nickname: '風来坊', slug: 'fuiraibo', reason: '堅実さと自由さが絶妙なバランスを生む' },
+      { nickname: '頭脳派女子', slug: 'zunoha', reason: '実行力と戦略性が組み合わさって最強コンビに' },
+      { nickname: '夢追い女子', slug: 'yumeoi-onna', reason: '安定感が深い理想を現実にする力になる' },
+    ],
   },
   {
     slug: 'ippiki-okami',
@@ -126,12 +126,11 @@ export const PERSONALITY_TYPES: OtokoPersonalityType[] = [
       '戦友、君の瞬発力は本物だ。誰も追いつけない速さで局面を打開できる、それは君だけの武器だぞ。でもな、孤独でいることと、一人でいることは違う。"誰にも頼らない"を貫きすぎると、傷が化膿する。一人でいてもいい。でも、たまにここに来て傷を見せてくれると俺は助かる。',
     bandaidMessage: '孤独は強さだ。でも孤立は傷だから、その違いだけ分かってくれ。',
     compatibleTypes: [
-      { nickname: '風来坊', slug: 'fuuraibo', reason: '自由と今この瞬間を分かち合える、静かな相棒' },
-      { nickname: 'ギャンブラー', slug: 'gambler', reason: 'テンションが合う。お互い刺激し合って燃える' },
-    {nickname:'一匹狼女',slug:'ippikiokami-onna',reason:'互いの孤独を尊重し合える'},
-    {nickname:'姉御',slug:'anego',reason:'同じ貫禄と経験値で通じ合える'},
-    {nickname:'癒し女子',slug:'iyashikei-onna',reason:'穏やかで安心できる関係'}
-  ],
+      { nickname: '兄貴', slug: 'aniki', reason: '孤独な強さを温かさが自然に包み込む' },
+      { nickname: 'お父さん', slug: 'otosan', reason: '寡黙な強さと温かい包容力が深い信頼を生む' },
+      { nickname: 'アイデア女子', slug: 'idea-onna', reason: '現実感覚と自由な発想が互いを刺激する' },
+      { nickname: 'お姉さん', slug: 'onesan', reason: '安定感と情熱が自然に惹かれ合う' },
+    ],
   },
   {
     slug: 'furutsuwamouno',
@@ -161,11 +160,11 @@ export const PERSONALITY_TYPES: OtokoPersonalityType[] = [
       '戦友、君が長年積み上げてきた経験は、本物だ。誰も真似できない厚みがある。でもな、一つだけ聞いてもいいか。君自身は、ちゃんとケアできてるか。仲間の盾になれる君が、自分の傷を一番後回しにしてることに、俺は気づいてるぞ。今日だけは、自分のために傷を確認しよう。',
     bandaidMessage: '君の経験は全部、次の戦友への地図だ。無駄なものは一つもない。',
     compatibleTypes: [
-      { nickname: '不死身', slug: 'fujimi', reason: '同じ価値観で黙って背中を預け合える戦友' },
-      { nickname: '癒し系', slug: 'iyashi', reason: '古強者の孤独な戦いを、静かに気にかけてくれる存在' },
-    {nickname:'マイペース女子',slug:'maipace',reason:'自由なテンポが合う旅仲間'},
-    {nickname:'直感女子',slug:'chokkan-onna',reason:'感覚で通じ合える最強コンビ'}
-  ],
+      { nickname: '夢追い人', slug: 'yumeoi', reason: '堅実さと深い洞察が互いを補完する' },
+      { nickname: '発明家', slug: 'hatsumei', reason: '現実派と理想派の対極が化学反応を起こす' },
+      { nickname: '夢追い女子', slug: 'yumeoi-onna', reason: '安定と情熱が深い絆を生む' },
+      { nickname: 'アイデア女子', slug: 'idea-onna', reason: '地に足ついた現実感覚が自由な発想を支える' },
+    ],
   },
   {
     slug: 'aniki',
@@ -195,10 +194,11 @@ export const PERSONALITY_TYPES: OtokoPersonalityType[] = [
       '戦友、君はいつも仲間のために燃えてきた。その温かさで救われたやつが、どれだけいると思う。でもな、俺が心配してるのは君自身だ。誰かのために燃え続ける前に、一回自分に聞いてみてくれ。「俺は今、大丈夫か」って。君の炎が消えたら、みんなが寒くなるんだぞ。',
     bandaidMessage: '引っ張ってくれる兄貴も、たまには誰かの弟でいていい。',
     compatibleTypes: [
-      { nickname: '軍師', slug: 'gunshi', reason: '深いところで分かり合える。兄貴の熱量を軍師が支える' },
-      { nickname: 'お父さん', slug: 'otosan', reason: '人を大切にする価値観が完全に一致。一緒にいると安心' },
-    {nickname:'お姉さん',slug:'onesan',reason:'温かさが自然に共鳴する'}
-  ],
+      { nickname: '職人', slug: 'shokunin', reason: '温かさと誠実さが深く共鳴する' },
+      { nickname: '一匹狼', slug: 'ippiki-okami', reason: '情熱が孤独に光をもたらす' },
+      { nickname: '鉄板女子', slug: 'hagane', reason: '包容力が誠実さを引き出す最高の組み合わせ' },
+      { nickname: 'こだわり女子', slug: 'kodawari', reason: '感情力と献身が美しく調和する' },
+    ],
   },
   {
     slug: 'otosan',
@@ -228,11 +228,11 @@ export const PERSONALITY_TYPES: OtokoPersonalityType[] = [
       '戦友、君がいると場が温かくなる。あの飯が食いたくて、あの声が聞きたくて、仲間が戻ってくるんだ。でもな、君もたまには「ありがとう」を受け取る側でいてくれ。世話を焼くことと、自分を後回しにすることは違うからな。君の笑顔が、俺にとっての一番の安心材料だぞ。',
     bandaidMessage: '人の世話ができる君にも、自分の世話をする権利がある。',
     compatibleTypes: [
-      { nickname: '兄貴', slug: 'aniki', reason: '温かさが共鳴する。お互いを自然に労い合える' },
-      { nickname: '癒し系', slug: 'iyashi', reason: '穏やかに支え合える。争いのない静かな絆' },
-    {nickname:'お母さん',slug:'okasan',reason:'愛で支え合える理想のパートナー'},
-    {nickname:'頭脳派女子',slug:'zunoha',reason:'知性で深く繋がれる'}
-  ],
+      { nickname: '一匹狼', slug: 'ippiki-okami', reason: '温かさが孤独をそっと包む' },
+      { nickname: '風来坊', slug: 'fuiraibo', reason: '安定と自由が補い合う独特の絆' },
+      { nickname: '一匹狼女', slug: 'ippikiokami-onna', reason: '献身が孤高を優しく支える' },
+      { nickname: 'マイペース女子', slug: 'maipace', reason: '安定感が自由を温かく見守る' },
+    ],
   },
   {
     slug: 'gunshi',
@@ -262,9 +262,10 @@ export const PERSONALITY_TYPES: OtokoPersonalityType[] = [
       '戦友、君はいつも他の誰かの痛みに先に気づいて、静かに手を差し伸べてきた。でも俺には分かる。君自身が一番孤独を感じてるってことが。"理解されない"と思い込んで、一人で抱えすぎてないか。君の言葉には力がある。それを俺にも、たまには向けてくれ。',
     bandaidMessage: '全部分かっている君にも、答えの出ない問いがある。それでいい。',
     compatibleTypes: [
-      { nickname: '夢追い人', slug: 'yumeoibito', reason: '深い世界観を言葉にしなくても分かち合える唯一の存在' },
-      { nickname: '兄貴', slug: 'aniki', reason: '軍師の内側を引き出してくれる。互いを高め合える関係' },
-      { nickname: 'アイデア女子', slug: 'idea-onna', reason: '直感と世界観が深く共鳴する' },
+      { nickname: '発明家', slug: 'hatsumei', reason: '戦略と発想が革新を生む最強タッグ' },
+      { nickname: '古強者', slug: 'furuyowamono', reason: '深い思考と豊富な経験が静かに共鳴する' },
+      { nickname: 'アイデア女子', slug: 'idea-onna', reason: '戦略眼と自由な発想が互いを完成させる' },
+      { nickname: 'お姉さん', slug: 'onesan', reason: '論理と感情が互いの欠けを埋め合う' },
     ],
   },
   {
@@ -295,10 +296,11 @@ export const PERSONALITY_TYPES: OtokoPersonalityType[] = [
       '戦友、君がいるだけで、場が安心する。それはすごい才能だぞ。でもな、俺はずっと気になってた。君の傷、誰かに見てもらってるか？いつも人の手当てをしてる君が、自分の傷を一番後回しにしてるのが見えてる。今日だけは、自分を一番に扱ってくれ。それが俺からのお願いだ。',
     bandaidMessage: '全員を癒せなくていい。まず自分を癒してから、また始めよう。',
     compatibleTypes: [
-      { nickname: 'お父さん', slug: 'otosan', reason: '同じ温かさと献身性。互いを労い合える穏やかな関係' },
-      { nickname: '古強者', slug: 'furutsuwamouno', reason: '静かに共存できる。価値観が深いところで一致している' },
-    {nickname:'夢追い女子',slug:'yumeoi-onna',reason:'夢を共有できる運命の相棒'}
-  ],
+      { nickname: '策士', slug: 'sakushi', reason: '純粋さと現実感覚が互いを引き立てる' },
+      { nickname: '夢追い人', slug: 'yumeoi', reason: '感性と洞察が深い共鳴を生む' },
+      { nickname: '小悪魔', slug: 'koakuma', reason: '純粋さと行動力が刺激的に惹かれ合う' },
+      { nickname: '直感女子', slug: 'chokkan-onna', reason: '感性と繊細さが美しく響き合う' },
+    ],
   },
   {
     slug: 'hakase',
@@ -328,10 +330,11 @@ export const PERSONALITY_TYPES: OtokoPersonalityType[] = [
       '戦友、君の頭の中は宇宙だな。俺には追いつけない場所で、毎日面白いものを見つけてる。でも一つだけ言わせてくれ。その発見、誰かに話してみてくれ。うまく伝わらなくていい。君の世界は、閉じ込めておくには惜しすぎる。俺は聞きたいぞ、その話。',
     bandaidMessage: '考えることは武器だ。でも生きることは、時に考えを止めることでもある。',
     compatibleTypes: [
-      { nickname: '参謀', slug: 'sanbo', reason: '知的対話が無限に続く。互いの理論を磨き合える' },
-      { nickname: '策士', slug: 'sakushi', reason: '議論のパートナー。博士が深堀りし、策士が広げる' },
-    {nickname:'クールビューティー',slug:'cool-beauty',reason:'知的な静けさを共有できる'}
-  ],
+      { nickname: '隊長', slug: 'taicho', reason: '分析力が行動力を支える完璧な補完関係' },
+      { nickname: '参謀', slug: 'sanbo', reason: '深い思考同士が知的刺激を与え合う' },
+      { nickname: '女大将', slug: 'onna-taisho', reason: '深い思考と実行力が最強コンビに' },
+      { nickname: '姉御', slug: 'anego', reason: '洞察と安定感が互いを高め合う' },
+    ],
   },
   {
     slug: 'sanbo',
@@ -361,9 +364,10 @@ export const PERSONALITY_TYPES: OtokoPersonalityType[] = [
       '戦友、君の戦略は本物だ。俺には見えない10手先を、君は当たり前のように見てる。でもな、一つだけ聞かせてくれ。その計画の中に、君自身の休息は含まれてるか。最強の参謀でも、消耗した頭では最善手は出せない。たまには手を止めていい。俺はそこにいる。',
     bandaidMessage: '最強の戦略家も、一人では実行できない。信頼できる一人を見つけよう。',
     compatibleTypes: [
-      { nickname: '隊長', slug: 'taicho', reason: '参謀の戦略を熱量で実行してくれる最高のバディ' },
-      { nickname: '博士', slug: 'hakase', reason: '知的深度が合う。互いの思考を刺激し合える' },
-      { nickname: '頭脳派女子', slug: 'zunoha', reason: '知性で深く繋がれる最強の知的パートナー' },
+      { nickname: '職人', slug: 'shokunin', reason: '発想力と誠実さが絶妙に補完し合う' },
+      { nickname: '癒し系', slug: 'iyashikei', reason: '鋭い知性と穏やかな包容力が深い絆を生む' },
+      { nickname: '鉄板女子', slug: 'hagane', reason: '革新と堅実さが互いの弱点を補い合う' },
+      { nickname: 'こだわり女子', slug: 'kodawari', reason: '自由な発想と丁寧さが美しく調和する' },
     ],
   },
   {
@@ -394,9 +398,10 @@ export const PERSONALITY_TYPES: OtokoPersonalityType[] = [
       '戦友、君のアイデアは本物だ。あのひらめきは、俺には到底出てこない。でも一つだけ言わせてくれ。そのアイデアを最後まで走らせたことが、何回あった？閃きは宝だけど、形にならなければ夢のままだ。今一番面白いやつ、一つだけ最後までやってみてくれ。俺は応援してるぞ。',
     bandaidMessage: '閃きは宝だ。でも実行しなければ、ただの夢だぞ。',
     compatibleTypes: [
-      { nickname: '隊長', slug: 'taicho', reason: '策士のアイデアを実行に移してくれる、最高の実行部隊' },
-      { nickname: '発明家', slug: 'hatsumei-ka', reason: '創造力が爆発し合う。お互いを更新し続けられる関係' },
-      { nickname: '小悪魔', slug: 'koakuma', reason: '互いに刺激し合う予測不能な化学反応' },
+      { nickname: '癒し系', slug: 'iyashikei', reason: '行動力と感性が互いに引き立て合う' },
+      { nickname: '夢追い人', slug: 'yumeoi', reason: '現実感覚と理想が深い絆を生む' },
+      { nickname: '癒し女子', slug: 'iyashikei-onna', reason: '刺激と癒しが絶妙なバランスを生む' },
+      { nickname: '夢追い女子', slug: 'yumeoi-onna', reason: '行動力が深い理想を現実に変える' },
     ],
   },
   {
@@ -427,11 +432,11 @@ export const PERSONALITY_TYPES: OtokoPersonalityType[] = [
       '戦友、君の仕事を見てたぞ。言葉にしなくても、あの手から本気が伝わってくる。でもな、俺が気になってるのはそこじゃなくて、君が自分のことを話せてるかだ。不具合は全部自分でなおしてきただろう。でも人間の傷は、たまに他人に見せた方が早く治るぞ。',
     bandaidMessage: '言葉にしなくても君の本気は伝わってる。でも今日は、一言だけ言ってみてくれ。',
     compatibleTypes: [
-      { nickname: '一匹狼', slug: 'ippiki-okami', reason: '言葉より行動で分かり合える。無言の連帯が最高' },
-      { nickname: '古強者', slug: 'furutsuwamouno', reason: '同じ職人気質。黙って隣に座っているだけで安心' },
-    {nickname:'こだわり女子',slug:'kodawari',reason:'同じ価値観で深く理解し合える'},
-    {nickname:'アイデア女子',slug:'idea-onna',reason:'アイデアで盛り上がれる最高の相棒'}
-  ],
+      { nickname: '兄貴', slug: 'aniki', reason: '誠実さと温かさが深く共鳴する' },
+      { nickname: '参謀', slug: 'sanbo', reason: '丁寧さと発想が互いを豊かにする' },
+      { nickname: 'お姉さん', slug: 'onesan', reason: '献身と情熱が美しく調和する' },
+      { nickname: '腹黒美女', slug: 'haraguro', reason: '誠実さと戦略が互いの欠けを補い合う' },
+    ],
   },
   {
     slug: 'fuuraibo',
@@ -461,9 +466,10 @@ export const PERSONALITY_TYPES: OtokoPersonalityType[] = [
       '戦友、君の感じ方は本物だ。あの繊細なセンスは、俺みたいな武骨な漢には到底持てないものだぞ。でも一つだけ言わせてくれ。君が作ったもの、感じたことを、もう少しだけ外に出してみてくれないか。うまくなくていい。伝わらなくていい。君が感じたことは、誰かにとっての救いになるから。',
     bandaidMessage: '風に乗ることは才能だ。どこかで根を張る時が来ても、君らしさは消えない。',
     compatibleTypes: [
-      { nickname: '一匹狼', slug: 'ippiki-okami', reason: '自由さと今この瞬間への共鳴。お互い深入りしない心地よさ' },
-      { nickname: 'ギャンブラー', slug: 'gambler', reason: '感性と楽しむ力が近い。一緒にいると解放感がある' },
-      { nickname: '直感女子', slug: 'chokkan-onna', reason: '感性で繋がる自由な魂同士' },
+      { nickname: 'お父さん', slug: 'otosan', reason: '自由さと安定が互いを支え合う' },
+      { nickname: '不死身', slug: 'fujimi', reason: '軽やかな自由と揺るぎない強さが惹かれ合う' },
+      { nickname: '鉄板女子', slug: 'hagane', reason: '自由な明るさと安定感が互いを補う' },
+      { nickname: 'こだわり女子', slug: 'kodawari', reason: '行動力と丁寧さが絶妙に補完する' },
     ],
   },
   {
@@ -494,9 +500,10 @@ export const PERSONALITY_TYPES: OtokoPersonalityType[] = [
       '戦友、君のエネルギーは本当に眩しいぞ。一緒にいるだけで、なんでもできる気がしてくる。でもな、俺は一つだけ心配してる。君が「自分はダメだ」と思いやすいことだ。振れ幅が大きい分、落ちた時の落差も大きい。そういう時こそ保健室に来てくれ。俺はいつでもここにいるから。',
     bandaidMessage: 'アイデアより大事なのは、一つを最後まで信じること。',
     compatibleTypes: [
-      { nickname: '策士', slug: 'sakushi', reason: 'アイデアが爆発し合う。互いが互いを更新し続ける' },
-      { nickname: '夢追い人', slug: 'yumeoibito', reason: '夢を語り合える。深いところで価値観が共鳴する' },
-      { nickname: 'アイデア女子', slug: 'idea-onna', reason: 'アイデアと創造力で世界を変える最強タッグ' },
+      { nickname: '一匹狼', slug: 'ippiki-okami', reason: '発想と現実感覚が互いを完成させる' },
+      { nickname: '軍師', slug: 'gunshi', reason: '自由な発想と戦略が革新を生む' },
+      { nickname: '一匹狼女', slug: 'ippikiokami-onna', reason: '情熱と冷静さが互いを引き立て合う' },
+      { nickname: '頭脳派女子', slug: 'zunoha', reason: '発想と戦略が最強のコンビに' },
     ],
   },
   {
@@ -527,9 +534,10 @@ export const PERSONALITY_TYPES: OtokoPersonalityType[] = [
       '戦友、君がいると場が明るくなる。それは本物の才能だぞ。でもな、俺は知ってる。笑顔の裏で抱えてるものがある時のこと。「楽しそう」と思われてる人間の痛みは、誰にも気づかれにくいからな。今日だけは笑顔を休憩して、ここでゆっくりしていってくれ。飯でも食おう。',
     bandaidMessage: '賭けることが得意な君に一つだけ確実な賭けを教えよう。自分への投資だ。',
     compatibleTypes: [
-      { nickname: '兄貴', slug: 'aniki', reason: '賑やかさを共有でき、兄貴がギャンブラーを深みに導いてくれる' },
-      { nickname: '一匹狼', slug: 'ippiki-okami', reason: '行動派同士。共に動いて共に笑える関係' },
-      { nickname: 'お姉さん', slug: 'onesan', reason: '包み込む温かさがギャンブラーの疾走を支えてくれる' },
+      { nickname: '隊長', slug: 'taicho', reason: '洞察と実行力が互いの夢を現実にする' },
+      { nickname: '古強者', slug: 'furuyowamono', reason: '繊細な感性と豊富な経験が深い信頼を生む' },
+      { nickname: '女大将', slug: 'onna-taisho', reason: '感性と行動力が美しく惹かれ合う' },
+      { nickname: '姉御', slug: 'anego', reason: '繊細さと安定感が互いを支え合う' },
     ],
   },
   {
@@ -560,9 +568,10 @@ export const PERSONALITY_TYPES: OtokoPersonalityType[] = [
       '戦友、君の夢を笑うやつは、俺が許さない。その理想の深さは、弱さじゃなくて強さだ。でもな、夢を見ることと、自分を傷めつけることは別の話だぞ。「まだ何もできていない」じゃなくて、「ずっと夢を手放さなかった」という事実を、今日だけは認めてくれ。それだけで十分だ。',
     bandaidMessage: '夢を見ることは、すでに行動だ。君はちゃんと戦っている。',
     compatibleTypes: [
-      { nickname: '軍師', slug: 'gunshi', reason: '深い世界観を言葉にせずとも分かり合える稀有な存在' },
-      { nickname: '発明家', slug: 'hatsumei-ka', reason: '夢を語り合える。発明家が夢追い人を外の世界へ連れ出してくれる' },
-      { nickname: '夢追い女子', slug: 'yumeoi-onna', reason: '同じ夢を見る魂の相棒' },
+      { nickname: '策士', slug: 'sakushi', reason: '深い洞察と行動力が互いを完成させる' },
+      { nickname: '風来坊', slug: 'fuiraibo', reason: '理想と自由が独特の化学反応を起こす' },
+      { nickname: '小悪魔', slug: 'koakuma', reason: '深い洞察と直感が互いを引き立て合う' },
+      { nickname: 'マイペース女子', slug: 'maipace', reason: '理想主義と温かさが深く共鳴する' },
     ],
   },
 ];
