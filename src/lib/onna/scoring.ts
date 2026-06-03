@@ -22,6 +22,22 @@ export function calculateOtokoType(answers: OtokoAnswers): string {
   return MBTI_TO_SLUG[mbti];
 }
 
+export function calculateOnnaType(answers: OtokoAnswers): string {
+  const majority = (ids: number[], aChar: string, bChar: string, tiebreakerQ: number): string => {
+    const aCount = ids.filter((id) => answers[id] === 'A').length;
+    const bCount = ids.filter((id) => answers[id] === 'B').length;
+    if (aCount > bCount) return aChar;
+    if (bCount > aCount) return bChar;
+    return answers[tiebreakerQ] === 'A' ? aChar : bChar;
+  };
+  const ei = majority([1, 2, 3, 4], 'E', 'I', 1);
+  const ns = majority([5, 6, 7, 8], 'N', 'S', 5);
+  const tf = majority([9, 10, 11, 12], 'T', 'F', 9);
+  const jp = majority([13, 14, 15, 16], 'J', 'P', 13);
+  const mbti = `${ei}${ns}${tf}${jp}` as MBTICode;
+  return MBTI_TO_SLUG[mbti];
+}
+
 export const STORAGE_KEY = 'otoko_diagnosis';
 
 export function saveAnswers(answers: OtokoAnswers): void {

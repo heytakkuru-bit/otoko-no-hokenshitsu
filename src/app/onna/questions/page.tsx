@@ -3,16 +3,25 @@
 import { useState, useCallback, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { ONNA_QUESTIONS } from '@/lib/onna/questions';
-import { calculateOtokoType, saveAnswers, type OtokoAnswers } from '@/lib/onna/scoring';
+import { calculateOnnaType, clearAnswers, type OtokoAnswers } from '@/lib/onna/scoring';
+
+const TOTAL_QUESTIONS = 16;
 
 const LOADING_LINES = [
   '気を測定中…',
-  '十六の漢と照合中…',
-  '君の本質を見極めてるぞ…',
+  '十六の女と照合中…',
+  '君の本質を見極めてる…',
   'もう少し待ってくれ…',
 ];
 
-export default function OtokoQuestionsPage() {
+const AXIS_SECTIONS = [
+  { label: '外剛 ／ 内剛', range: [1, 4] },
+  { label: '直感 ／ 現実', range: [5, 8] },
+  { label: '理性 ／ 感情', range: [9, 12] },
+  { label: '計画 ／ 柔軟', range: [13, 16] },
+];
+
+export default function OnnaQuestionsPage() {
   const router = useRouter();
   const [currentQ, setCurrentQ] = useState(1);
   const [answers, setAnswers] = useState<OtokoAnswers>({});
@@ -23,7 +32,6 @@ export default function OtokoQuestionsPage() {
   const [loadingLine, setLoadingLine] = useState(LOADING_LINES[0]);
 
   useEffect(() => {
-    // Trigger slide in on mount and question change
     setSlideIn(true);
     const t = setTimeout(() => setSlideIn(false), 500);
     return () => clearTimeout(t);
@@ -37,9 +45,8 @@ export default function OtokoQuestionsPage() {
       const newAnswers = { ...answers, [currentQ]: value };
       setAnswers(newAnswers);
 
-      if (currentQ === 5) {
-        // Last question — loading then result
-        saveAnswers(newAnswers);
+      if (currentQ === TOTAL_QUESTIONS) {
+        clearAnswers();
         setLoading(true);
 
         let idx = 0;
@@ -50,11 +57,10 @@ export default function OtokoQuestionsPage() {
 
         setTimeout(() => {
           clearInterval(interval);
-          const typeSlug = calculateOtokoType(newAnswers);
+          const typeSlug = calculateOnnaType(newAnswers);
           router.push(`/onna/result/${typeSlug}`);
         }, 2200);
       } else {
-        // Slide out then advance
         setTimeout(() => {
           setSlideOut(true);
           setTimeout(() => {
@@ -69,13 +75,15 @@ export default function OtokoQuestionsPage() {
   );
 
   const question = ONNA_QUESTIONS[currentQ - 1];
-  const progress = ((currentQ - 1) / 5) * 100;
+  const progress = ((currentQ - 1) / TOTAL_QUESTIONS) * 100;
+  const currentSection = AXIS_SECTIONS.findIndex(
+    (s) => currentQ >= s.range[0] && currentQ <= s.range[1]
+  );
 
   if (loading) {
     return (
       <div className="flex-1 flex flex-col items-center justify-center px-6 min-h-screen">
         <div className="text-center space-y-6">
-          {/* Animated cross */}
           <div className="relative w-20 h-20 mx-auto">
             <div className="absolute inset-0 rounded-full border-2 border-[#b22222]/30 animate-ping" />
             <div className="absolute inset-2 rounded-full border-2 border-[#c9a04e]/40 animate-ping animation-delay-300" />
@@ -90,7 +98,7 @@ export default function OtokoQuestionsPage() {
             >
               {loadingLine}
             </p>
-            <p className="text-[#f5f0e8]/40 text-sm">漢保が判断してる。少し待ってくれ。</p>
+            <p className="text-[#f5f0e8]/40 text-sm">君の本質を見極めてる。少し待ってくれ。</p>
           </div>
         </div>
       </div>
@@ -103,7 +111,7 @@ export default function OtokoQuestionsPage() {
       <div className="px-6 pt-8 pb-4">
         <div className="flex items-center justify-between mb-2">
           <span className="text-[#c9a04e]/70 text-xs font-bold tracking-widest">
-            Q{currentQ} / 5
+            Q{currentQ} / {TOTAL_QUESTIONS}
           </span>
           <span className="text-[#f5f0e8]/30 text-xs">{question.displayAxis}</span>
         </div>
@@ -113,6 +121,21 @@ export default function OtokoQuestionsPage() {
             style={{ width: `${progress}%` }}
           />
         </div>
+        {/* Axis section dots */}
+        <div className="flex justify-center gap-3 mt-3">
+          {AXIS_SECTIONS.map((s, i) => (
+            <div
+              key={s.label}
+              className={`rounded-full transition-all duration-300 ${
+                i < currentSection
+                  ? 'w-2 h-2 bg-[#c9a04e]'
+                  : i === currentSection
+                  ? 'w-4 h-2 bg-[#b22222]'
+                  : 'w-2 h-2 bg-[#243040]'
+              }`}
+            />
+          ))}
+        </div>
       </div>
 
       {/* Question card */}
@@ -121,7 +144,7 @@ export default function OtokoQuestionsPage() {
           slideOut ? 'opacity-0 -translate-x-8' : slideIn ? 'opacity-0 translate-x-8' : 'opacity-100 translate-x-0'
         }`}
       >
-        {/* Otoko-Tamotsu comment */}
+        {/* Comment */}
         <div className="flex items-start gap-3 mt-2">
           <div className="w-8 h-8 rounded-full bg-[#b22222]/20 border border-[#b22222]/40 flex items-center justify-center text-sm flex-shrink-0 mt-0.5">
             ✚
@@ -172,22 +195,6 @@ export default function OtokoQuestionsPage() {
               </button>
             );
           })}
-        </div>
-
-        {/* Dot indicators */}
-        <div className="flex justify-center gap-2 mt-4">
-          {ONNA_QUESTIONS.map((_, i) => (
-            <div
-              key={i}
-              className={`rounded-full transition-all duration-300 ${
-                i + 1 < currentQ
-                  ? 'w-2 h-2 bg-[#c9a04e]'
-                  : i + 1 === currentQ
-                  ? 'w-4 h-2 bg-[#b22222]'
-                  : 'w-2 h-2 bg-[#243040]'
-              }`}
-            />
-          ))}
         </div>
       </div>
     </div>
