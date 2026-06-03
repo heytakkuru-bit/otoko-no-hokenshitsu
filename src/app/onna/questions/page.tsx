@@ -2,7 +2,7 @@
 
 import { useState, useCallback, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { OTOKO_QUESTIONS } from '@/lib/onna/questions';
+import { ONNA_QUESTIONS } from '@/lib/onna/questions';
 import { calculateOtokoType, saveAnswers, type OtokoAnswers } from '@/lib/onna/scoring';
 
 const LOADING_LINES = [
@@ -68,7 +68,7 @@ export default function OtokoQuestionsPage() {
     [currentQ, answers, selected, router]
   );
 
-  const question = OTOKO_QUESTIONS[currentQ - 1];
+  const question = ONNA_QUESTIONS[currentQ - 1];
   const progress = ((currentQ - 1) / 5) * 100;
 
   if (loading) {
@@ -176,7 +176,7 @@ export default function OtokoQuestionsPage() {
 
         {/* Dot indicators */}
         <div className="flex justify-center gap-2 mt-4">
-          {OTOKO_QUESTIONS.map((_, i) => (
+          {ONNA_QUESTIONS.map((_, i) => (
             <div
               key={i}
               className={`rounded-full transition-all duration-300 ${
