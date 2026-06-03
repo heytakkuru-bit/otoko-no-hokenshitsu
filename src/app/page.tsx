@@ -1,36 +1,32 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { PERSONALITY_TYPES } from '@/lib/otoko/types';
 
 export default function RootPage() {
-  const TYPES = [
-    '隊長', '不死身', '一匹狼', '古強者',
-    '兄貴', 'お父さん', '軍師', '癒し系',
-    '博士', '参謀', '策士', '職人',
-    '風来坊', '発明家', 'ギャンブラー', '夢追い人',
-  ];
-
   return (
     <main className="bg-[#0a0a0a] text-white">
 
       {/* ── HERO ───────────────────────────────────────────── */}
-      <section className="relative h-[100svh] overflow-hidden">
-        <Image
-          src="/characters/group.png"
-          alt="16漢"
-          fill
-          className="object-cover object-top"
-          priority
-        />
+      <section>
+        {/* 画像エリア: 画面高さの70% */}
+        <div className="relative w-full overflow-hidden" style={{ height: '70svh' }}>
+          <Image
+            src="/characters/group.png"
+            alt="16漢"
+            fill
+            className="object-cover object-center"
+            priority
+          />
+          {/* 上フェード */}
+          <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#0a0a0a] to-transparent" />
+          {/* 下フェード */}
+          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0a0a0a] to-transparent" />
+        </div>
 
-        {/* top fade */}
-        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#0a0a0a] to-transparent" />
-        {/* bottom fade — taller for content space */}
-        <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/70 to-transparent" />
-
-        {/* content */}
-        <div className="absolute inset-0 flex flex-col justify-end items-center text-center pb-16 px-6">
+        {/* タイトル＆ボタン — 画像の下 */}
+        <div className="px-8 pt-10 pb-20 text-center">
           <p
-            className="text-[#C8A96E] font-bold mb-3"
+            className="text-[#C8A96E] font-bold mb-4"
             style={{ fontSize: '10px', letterSpacing: '0.5em' }}
           >
             十 人 十 漢
@@ -44,16 +40,16 @@ export default function RootPage() {
           </p>
           <Link
             href="/diagnosis"
-            className="bg-[#C8A96E] text-[#0a0a0a] font-black px-10 py-4 rounded-full text-sm tracking-widest active:scale-95 transition-transform duration-150"
+            className="inline-block bg-[#C8A96E] text-[#0a0a0a] font-black px-10 py-4 rounded-full text-sm tracking-widest active:scale-95 transition-transform duration-150"
           >
             診断を受ける
           </Link>
-          <p className="text-white/25 text-[10px] mt-4 tracking-widest">無料 · 全16問 · 約3分</p>
+          <p className="text-white/25 text-[10px] mt-5 tracking-widest">無料 · 全16問 · 約3分</p>
         </div>
       </section>
 
       {/* ── CONCEPT ─────────────────────────────────────────── */}
-      <section className="px-8 py-24">
+      <section className="px-8 py-20 border-t border-white/5">
         <p
           className="text-[#C8A96E] font-bold mb-8"
           style={{ fontSize: '10px', letterSpacing: '0.4em' }}
@@ -73,25 +69,34 @@ export default function RootPage() {
       </section>
 
       {/* ── 16 TYPES ────────────────────────────────────────── */}
-      <section className="px-6 pb-24 border-t border-white/5 pt-20">
+      <section className="px-5 pb-24 border-t border-white/5 pt-20">
         <p
-          className="text-[#C8A96E] font-bold mb-6 px-2"
+          className="text-[#C8A96E] font-bold mb-5 px-1"
           style={{ fontSize: '10px', letterSpacing: '0.4em' }}
         >
           16 TYPES
         </p>
-        <h2 className="text-3xl font-black mb-3 px-2">君はどの漢だ？</h2>
-        <p className="text-white/30 text-sm mb-10 px-2">全16タイプの中に、君がいる。</p>
+        <h2 className="text-3xl font-black mb-3 px-1">君はどの漢だ？</h2>
+        <p className="text-white/30 text-sm mb-10 px-1">全16タイプの中に、君がいる。</p>
 
-        <div className="grid grid-cols-4 gap-2 mb-10">
-          {TYPES.map((name) => (
+        {/* スマホ2列 / PC4列 */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10">
+          {PERSONALITY_TYPES.map((type) => (
             <div
-              key={name}
-              className="aspect-square bg-white/[0.04] border border-white/[0.08] rounded-2xl flex items-center justify-center"
+              key={type.slug}
+              className="bg-white/[0.04] border border-white/[0.08] rounded-2xl overflow-hidden"
             >
-              <span className="text-[10px] text-white/40 font-bold text-center leading-tight px-1">
-                {name}
-              </span>
+              <div className="relative w-full aspect-square">
+                <Image
+                  src={`/characters/${type.characterImageFile}`}
+                  alt={type.nickname}
+                  fill
+                  className="object-cover object-top"
+                />
+              </div>
+              <p className="text-white/70 text-xs font-bold text-center py-2 px-1 truncate">
+                {type.nickname}
+              </p>
             </div>
           ))}
         </div>
