@@ -264,6 +264,7 @@ export const PERSONALITY_TYPES: OtokoPersonalityType[] = [
     compatibleTypes: [
       { nickname: '夢追い人', slug: 'yumeoibito', reason: '深い世界観を言葉にしなくても分かち合える唯一の存在' },
       { nickname: '兄貴', slug: 'aniki', reason: '軍師の内側を引き出してくれる。互いを高め合える関係' },
+      { nickname: 'アイデア女子', slug: 'idea-onna', reason: '直感と世界観が深く共鳴する' },
     ],
   },
   {
@@ -362,6 +363,7 @@ export const PERSONALITY_TYPES: OtokoPersonalityType[] = [
     compatibleTypes: [
       { nickname: '隊長', slug: 'taicho', reason: '参謀の戦略を熱量で実行してくれる最高のバディ' },
       { nickname: '博士', slug: 'hakase', reason: '知的深度が合う。互いの思考を刺激し合える' },
+      { nickname: '頭脳派女子', slug: 'zunoha', reason: '知性で深く繋がれる最強の知的パートナー' },
     ],
   },
   {
@@ -394,6 +396,7 @@ export const PERSONALITY_TYPES: OtokoPersonalityType[] = [
     compatibleTypes: [
       { nickname: '隊長', slug: 'taicho', reason: '策士のアイデアを実行に移してくれる、最高の実行部隊' },
       { nickname: '発明家', slug: 'hatsumei-ka', reason: '創造力が爆発し合う。お互いを更新し続けられる関係' },
+      { nickname: '小悪魔', slug: 'koakuma', reason: '互いに刺激し合う予測不能な化学反応' },
     ],
   },
   {
@@ -460,6 +463,7 @@ export const PERSONALITY_TYPES: OtokoPersonalityType[] = [
     compatibleTypes: [
       { nickname: '一匹狼', slug: 'ippiki-okami', reason: '自由さと今この瞬間への共鳴。お互い深入りしない心地よさ' },
       { nickname: 'ギャンブラー', slug: 'gambler', reason: '感性と楽しむ力が近い。一緒にいると解放感がある' },
+      { nickname: '直感女子', slug: 'chokkan-onna', reason: '感性で繋がる自由な魂同士' },
     ],
   },
   {
@@ -492,6 +496,7 @@ export const PERSONALITY_TYPES: OtokoPersonalityType[] = [
     compatibleTypes: [
       { nickname: '策士', slug: 'sakushi', reason: 'アイデアが爆発し合う。互いが互いを更新し続ける' },
       { nickname: '夢追い人', slug: 'yumeoibito', reason: '夢を語り合える。深いところで価値観が共鳴する' },
+      { nickname: 'アイデア女子', slug: 'idea-onna', reason: 'アイデアと創造力で世界を変える最強タッグ' },
     ],
   },
   {
@@ -524,6 +529,7 @@ export const PERSONALITY_TYPES: OtokoPersonalityType[] = [
     compatibleTypes: [
       { nickname: '兄貴', slug: 'aniki', reason: '賑やかさを共有でき、兄貴がギャンブラーを深みに導いてくれる' },
       { nickname: '一匹狼', slug: 'ippiki-okami', reason: '行動派同士。共に動いて共に笑える関係' },
+      { nickname: 'お姉さん', slug: 'onesan', reason: '包み込む温かさがギャンブラーの疾走を支えてくれる' },
     ],
   },
   {
@@ -556,6 +562,7 @@ export const PERSONALITY_TYPES: OtokoPersonalityType[] = [
     compatibleTypes: [
       { nickname: '軍師', slug: 'gunshi', reason: '深い世界観を言葉にせずとも分かり合える稀有な存在' },
       { nickname: '発明家', slug: 'hatsumei-ka', reason: '夢を語り合える。発明家が夢追い人を外の世界へ連れ出してくれる' },
+      { nickname: '夢追い女子', slug: 'yumeoi-onna', reason: '同じ夢を見る魂の相棒' },
     ],
   },
 ];

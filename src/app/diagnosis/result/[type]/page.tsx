@@ -275,7 +275,7 @@ export default function OtokoResultPage({ params }: { params: { type: string } }
 
       {/* ── 相性タイプ ── */}
       {(() => {
-        const ONNA_SLUGS = new Set(['onna-taisho','hagane','ippikiokami-onna','anego','onesan','okasan','zunoha','cool-beauty','haraguro','koakuma','kodawari','maipace','idea-onna','chokkan-onna','yumeoi-onna']);
+        const ONNA_SLUGS = new Set(['onna-taisho','hagane','ippikiokami-onna','anego','onesan','okasan','zunoha','iyashikei-onna','cool-beauty','haraguro','koakuma','kodawari','maipace','idea-onna','chokkan-onna','yumeoi-onna']);
         const otokoTypes = typeData.compatibleTypes.filter(ct => !ONNA_SLUGS.has(ct.slug));
         const onnaTypes = typeData.compatibleTypes.filter(ct => ONNA_SLUGS.has(ct.slug));
         return (
