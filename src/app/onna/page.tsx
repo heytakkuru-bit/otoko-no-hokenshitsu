@@ -9,7 +9,7 @@ export default function DiagnosisTopPage() {
 
   const handleStart = () => {
     clearAnswers();
-    router.push('/diagnosis/questions');
+    router.push('/onna/questions');
   };
 
   return (

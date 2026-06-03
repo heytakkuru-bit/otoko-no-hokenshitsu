@@ -29,7 +29,7 @@ export default function OtokoResultPage({ params }: { params: { type: string } }
   useEffect(() => {
     const data = TYPE_MAP.get(params.type);
     if (!data) {
-      router.replace('/diagnosis');
+      router.replace('/onna');
       return;
     }
     setTypeData(data);
@@ -50,7 +50,7 @@ export default function OtokoResultPage({ params }: { params: { type: string } }
 
   const handleRetry = useCallback(() => {
     clearAnswers();
-    router.push('/diagnosis');
+    router.push('/onna');
   }, [router]);
 
   const handleShare = useCallback(() => {

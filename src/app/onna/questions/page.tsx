@@ -51,7 +51,7 @@ export default function OtokoQuestionsPage() {
         setTimeout(() => {
           clearInterval(interval);
           const typeSlug = calculateOtokoType(newAnswers);
-          router.push(`/diagnosis/result/${typeSlug}`);
+          router.push(`/onna/result/${typeSlug}`);
         }, 2200);
       } else {
         // Slide out then advance
