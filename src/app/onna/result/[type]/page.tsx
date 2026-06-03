@@ -8,10 +8,10 @@ import {
   CATEGORY_COLORS,
   ELEMENT_COLORS,
   ELEMENT_EMOJI,
-  type OtokoPersonalityType,
-} from '@/lib/otoko/types';
-import { ELEMENT_CONDITIONS, getTodaysElement, type ElementCondition } from '@/lib/otoko/elements';
-import { clearAnswers } from '@/lib/otoko/scoring';
+  type OnnaPersonalityType,
+} from '@/lib/onna/types';
+import { ELEMENT_CONDITIONS, getTodaysElement, type ElementCondition } from '@/lib/onna/elements';
+import { clearAnswers } from '@/lib/onna/scoring';
 
 // ─── Phase types ──────────────────────────────────────────────────────────────
 type Phase = 'loading' | 'reveal' | 'content';
@@ -21,7 +21,7 @@ const NOTE_URL = 'https://note.com'; // Note記事URLをここに設定
 export default function OtokoResultPage({ params }: { params: { type: string } }) {
   const router = useRouter();
   const [phase, setPhase] = useState<Phase>('loading');
-  const [typeData, setTypeData] = useState<OtokoPersonalityType | null>(null);
+  const [typeData, setTypeData] = useState<OnnaPersonalityType | null>(null);
   const [todayCondition, setTodayCondition] = useState<ElementCondition | null>(null);
   const [conditionMode, setConditionMode] = useState<'full' | 'weak'>('full');
   const [shareVisible, setShareVisible] = useState(false);

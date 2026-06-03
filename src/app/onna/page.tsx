@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import { clearAnswers } from '@/lib/otoko/scoring';
+import { clearAnswers } from '@/lib/onna/scoring';
 
 export default function DiagnosisTopPage() {
   const router = useRouter();

@@ -2,8 +2,8 @@
 
 import { useState, useCallback, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { OTOKO_QUESTIONS } from '@/lib/otoko/questions';
-import { calculateOtokoType, saveAnswers, type OtokoAnswers } from '@/lib/otoko/scoring';
+import { OTOKO_QUESTIONS } from '@/lib/onna/questions';
+import { calculateOtokoType, saveAnswers, type OtokoAnswers } from '@/lib/onna/scoring';
 
 const LOADING_LINES = [
   '気を測定中…',
