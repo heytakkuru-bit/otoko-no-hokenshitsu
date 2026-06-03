@@ -1,6 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import Image from 'next/image';
 import { clearAnswers } from '@/lib/otoko/scoring';
 
@@ -95,6 +96,14 @@ export default function DiagnosisTopPage() {
         <p className="text-center text-[#f5f0e8]/25 text-xs mt-4">
           ほら、傷口に絆創膏を貼っておいたぞ。ボロボロになっても、また貼り合おうぜ。
         </p>
+        <Link
+          href="/onna"
+          className="mt-4 w-full flex items-center justify-center gap-2 border border-[#c9a04e]/50
+            text-[#c9a04e] text-sm font-bold py-3 rounded-2xl
+            hover:bg-[#c9a04e]/10 active:scale-[0.97] transition-all duration-150"
+        >
+          ✨ 女性の方はこちら → 16女診断
+        </Link>
       </div>
     </div>
   );
