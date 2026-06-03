@@ -55,7 +55,7 @@ export default function OtokoResultPage({ params }: { params: { type: string } }
 
   const handleShare = useCallback(() => {
     if (!typeData) return;
-    const text = `私は「${typeData.nickname}（${typeData.formalName}）」漢でした！\n${typeData.catchphrase}\n\n#漢の保健室 #十人十漢 #16漢パーソナリティ診断`;
+    const text = `私は「${typeData.nickname}（${typeData.formalName}）」女でした！\n${typeData.catchphrase}\n\n#16女診断 #十人十女 #16女パーソナリティ診断`;
     const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank', 'noopener');
     setShareVisible(true);
@@ -78,7 +78,7 @@ export default function OtokoResultPage({ params }: { params: { type: string } }
           </div>
           <div>
             <p className="text-[#c9a04e] text-lg font-bold mb-2">漢保が診断中だ…</p>
-            <p className="text-[#f5f0e8]/40 text-sm">十六の漢から、君の本質を見極めてる</p>
+            <p className="text-[#f5f0e8]/40 text-sm">十六の女から、君の本質を見極めてる</p>
           </div>
           <div className="flex gap-1 justify-center">
             {[0, 1, 2].map((i) => (
@@ -208,7 +208,7 @@ export default function OtokoResultPage({ params }: { params: { type: string } }
       {/* ── 心理学的解説 ── */}
       <div className="px-5 mb-4">
         <div className="bg-[#1e2d3d] border border-[#4a7fb5]/20 rounded-2xl p-4">
-          <p className="text-[#4a7fb5] text-xs font-bold tracking-wide mb-2">📖 漢の本質（心理学解説）</p>
+          <p className="text-[#4a7fb5] text-xs font-bold tracking-wide mb-2">📖 女の本質（心理学解説）</p>
           <p className="text-[#f5f0e8]/70 text-sm leading-relaxed">{typeData.psychologyNote}</p>
         </div>
       </div>
@@ -350,7 +350,7 @@ export default function OtokoResultPage({ params }: { params: { type: string } }
             <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.26 5.632 5.905-5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
           </svg>
           <span>
-            「{typeData.nickname}」漢としてシェアする
+            「{typeData.nickname}」女としてシェアする
           </span>
         </button>
         {shareVisible && (
