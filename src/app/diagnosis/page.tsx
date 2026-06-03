@@ -23,7 +23,7 @@ export default function DiagnosisTopPage() {
       {/* Header */}
       <div className="pt-10 pb-4 px-6 text-center relative">
         <div className="inline-flex items-center gap-2 bg-[#b22222]/10 border border-[#b22222]/30 rounded-full px-4 py-1.5 mb-6">
-          <span className="text-[#c9a04e] text-xs font-bold tracking-widest">漢の保健室</span>
+          <span className="text-[#c9a04e] text-xs font-bold tracking-widest">16漢診断</span>
         </div>
         <h1
           className="text-3xl font-black text-[#c9a04e] leading-tight mb-1"

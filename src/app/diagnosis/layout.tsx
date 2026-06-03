@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: '漢の保健室 ― 16漢パーソナリティ診断',
+  title: '16漢診断 ― 16漢パーソナリティ診断',
   description:
     'あんた、自分がどんな漢か、知ってるか？漢保（オトコタモツ）が全16タイプの漢を診断する。十人十漢 — 漢の数だけ生き方がある。',
   openGraph: {
-    title: '漢の保健室 ― 16漢パーソナリティ診断',
+    title: '16漢診断 ― 16漢パーソナリティ診断',
     description: 'あんた、自分がどんな漢か、知ってるか？',
   },
 };
