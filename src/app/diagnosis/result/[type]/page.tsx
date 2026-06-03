@@ -274,23 +274,53 @@ export default function OtokoResultPage({ params }: { params: { type: string } }
       </div>
 
       {/* ── 相性タイプ ── */}
-      <div className="px-5 mb-4">
-        <p className="text-[#c9a04e]/70 text-xs font-bold tracking-widest mb-3">⚔️ 相性の良い漢</p>
-        <div className="space-y-2">
-          {typeData.compatibleTypes.map((ct) => (
-            <div
-              key={ct.slug}
-              className="flex items-start gap-3 bg-[#1e2d3d] border border-[#c9a04e]/10 rounded-xl p-3"
-            >
-              <CharacterImage filename={TYPE_MAP.get(ct.slug)?.characterImageFile ?? `${ct.slug}.png`} alt={ct.nickname} size={44} />
-              <div className="flex-1 min-w-0">
-                <p className="text-[#c9a04e] text-sm font-bold">{ct.nickname}</p>
-                <p className="text-[#f5f0e8]/50 text-xs leading-relaxed mt-0.5">{ct.reason}</p>
+      {(() => {
+        const ONNA_SLUGS = new Set(['onna-taisho','hagane','ippikiokami-onna','anego','onesan','okasan','zunoha','cool-beauty','haraguro','koakuma','kodawari','maipace','idea-onna','chokkan-onna','yumeoi-onna']);
+        const otokoTypes = typeData.compatibleTypes.filter(ct => !ONNA_SLUGS.has(ct.slug));
+        const onnaTypes = typeData.compatibleTypes.filter(ct => ONNA_SLUGS.has(ct.slug));
+        return (
+          <>
+            {otokoTypes.length > 0 && (
+              <div className="px-5 mb-4">
+                <p className="text-[#c9a04e]/70 text-xs font-bold tracking-widest mb-3">⚔️ 相性の良い漢</p>
+                <div className="space-y-2">
+                  {otokoTypes.map((ct) => (
+                    <div
+                      key={ct.slug}
+                      className="flex items-start gap-3 bg-[#1e2d3d] border border-[#c9a04e]/10 rounded-xl p-3"
+                    >
+                      <CharacterImage filename={TYPE_MAP.get(ct.slug)?.characterImageFile ?? `${ct.slug}.png`} alt={ct.nickname} size={44} />
+                      <div className="flex-1 min-w-0">
+                        <p className="text-[#c9a04e] text-sm font-bold">{ct.nickname}</p>
+                        <p className="text-[#f5f0e8]/50 text-xs leading-relaxed mt-0.5">{ct.reason}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-      </div>
+            )}
+            {onnaTypes.length > 0 && (
+              <div className="px-5 mb-4">
+                <p className="text-[#c9a04e]/70 text-xs font-bold tracking-widest mb-3">✨ 相性の良い女</p>
+                <div className="space-y-2">
+                  {onnaTypes.map((ct) => (
+                    <div
+                      key={ct.slug}
+                      className="flex items-start gap-3 bg-[#1e2d3d] border border-[#c9a04e]/10 rounded-xl p-3"
+                    >
+                      <CharacterImage filename={`${ct.slug}.png`} alt={ct.nickname} size={44} />
+                      <div className="flex-1 min-w-0">
+                        <p className="text-[#c9a04e] text-sm font-bold">{ct.nickname}</p>
+                        <p className="text-[#f5f0e8]/50 text-xs leading-relaxed mt-0.5">{ct.reason}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </>
+        );
+      })()}
 
       {/* ── 今日のコンディション ── */}
       {todayCondition && (
