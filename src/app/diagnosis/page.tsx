@@ -72,7 +72,7 @@ export default function DiagnosisTopPage() {
       <div className="flex justify-center gap-6 mt-5 px-6">
         {[
           { icon: '⚡', label: '約2分' },
-          { icon: '🎯', label: '全5問' },
+          { icon: '🎯', label: '全16問' },
           { icon: '⚔️', label: '16タイプ' },
         ].map((item) => (
           <div key={item.label} className="flex flex-col items-center gap-1">
