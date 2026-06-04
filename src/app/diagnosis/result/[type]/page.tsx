@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import CharacterImage from '@/components/otoko/CharacterImage';
 import {
@@ -25,6 +25,8 @@ export default function OtokoResultPage({ params }: { params: { type: string } }
   const [todayCondition, setTodayCondition] = useState<ElementCondition | null>(null);
   const [conditionMode, setConditionMode] = useState<'full' | 'weak'>('full');
   const [shareVisible, setShareVisible] = useState(false);
+  const [saving, setSaving] = useState(false);
+  const captureRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const data = TYPE_MAP.get(params.type);
@@ -52,6 +54,27 @@ export default function OtokoResultPage({ params }: { params: { type: string } }
     clearAnswers();
     router.push('/diagnosis');
   }, [router]);
+
+  const handleSave = useCallback(async () => {
+    if (!captureRef.current || !typeData) return;
+    setSaving(true);
+    try {
+      const html2canvas = (await import('html2canvas')).default;
+      const canvas = await html2canvas(captureRef.current, {
+        width: 1080,
+        height: 1080,
+        scale: 1,
+        useCORS: true,
+        backgroundColor: '#0a0a0a',
+      });
+      const link = document.createElement('a');
+      link.download = `16漢診断_${typeData.nickname}.png`;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    } finally {
+      setSaving(false);
+    }
+  }, [typeData]);
 
   const handleShare = useCallback(() => {
     if (!typeData) return;
@@ -369,6 +392,75 @@ export default function OtokoResultPage({ params }: { params: { type: string } }
           </div>
         </div>
       )}
+
+      {/* ── キャプチャ用隠しカード（画面外） ── */}
+      <div
+        ref={captureRef}
+        style={{
+          position: 'fixed',
+          left: '-9999px',
+          top: 0,
+          width: 1080,
+          height: 1080,
+          background: '#0a0a0a',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'flex-end',
+          overflow: 'hidden',
+        }}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={`/characters/${typeData.slug}.png`}
+          alt={typeData.nickname}
+          width={1080}
+          height={900}
+          crossOrigin="anonymous"
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '75%',
+            objectFit: 'cover',
+            objectPosition: 'top',
+          }}
+        />
+        <div
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            right: 0,
+            height: '45%',
+            background: 'linear-gradient(to bottom, transparent, #0a0a0a 40%)',
+          }}
+        />
+        <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', paddingBottom: 64, width: '100%' }}>
+          <div style={{ color: '#C8A96E', fontSize: 96, fontWeight: 900, fontFamily: 'serif', lineHeight: 1.1 }}>
+            {typeData.nickname}
+          </div>
+          <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: 32, marginTop: 12 }}>
+            {typeData.formalName}
+          </div>
+          <div style={{ color: 'rgba(255,255,255,0.25)', fontSize: 22, marginTop: 32, letterSpacing: '0.3em' }}>
+            漢の保健室
+          </div>
+        </div>
+      </div>
+
+      {/* ── 画像保存ボタン ── */}
+      <div className="px-5 mb-3">
+        <button
+          onClick={handleSave}
+          disabled={saving}
+          className="w-full bg-[#1a2535] border border-[#c9a04e]/30 text-[#c9a04e] font-bold py-4 rounded-2xl
+            flex items-center justify-center gap-2 active:scale-[0.98] transition-all duration-150 disabled:opacity-50"
+        >
+          <span>{saving ? '生成中…' : '📸 結果画像を保存する'}</span>
+        </button>
+      </div>
 
       {/* ── Xシェアボタン ── */}
       <div className="px-5 mb-3">
