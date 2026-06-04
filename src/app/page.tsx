@@ -32,7 +32,7 @@ export default function RootPage() {
             十 人 十 漢
           </p>
           <h1 className="text-5xl font-black tracking-tight leading-none mb-5">
-            漢の保健室
+            16漢診断
           </h1>
           <p className="text-white/50 text-sm leading-loose mb-10">
             16の漢が、君の本質を見極める。<br />

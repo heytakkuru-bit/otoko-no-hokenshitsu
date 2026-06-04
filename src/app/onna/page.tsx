@@ -9,7 +9,7 @@ export default function OnnaTopPage() {
       {/* ── HERO ───────────────────────────────────────────── */}
       <section>
         {/* 画像エリア: 画面高さの70% */}
-        <div className="relative w-full overflow-hidden" style={{ height: '70svh' }}>
+        <div className="relative overflow-hidden" style={{ height: '70svh', width: '100vw', marginLeft: 'calc(50% - 50vw)' }}>
           <Image
             src="/characters/group-onna.png"
             alt="16女"
@@ -32,7 +32,7 @@ export default function OnnaTopPage() {
             ♡ 十 人 十 女 ♡
           </p>
           <h1 className="text-5xl font-black tracking-tight leading-none mb-5">
-            漢の保健室
+            16女診断
           </h1>
           <p className="text-white/50 text-sm leading-loose mb-10">
             16の女が、君の本質を見極める。<br />
