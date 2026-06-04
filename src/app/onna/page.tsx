@@ -9,7 +9,7 @@ export default function OnnaTopPage() {
       {/* ── HERO ───────────────────────────────────────────── */}
       <section>
         {/* 画像エリア: 画面高さの70% */}
-        <div className="relative overflow-hidden" style={{ height: '70svh', width: '100vw', marginLeft: 'calc(50% - 50vw)' }}>
+        <div className="relative w-full overflow-hidden" style={{ height: '70svh' }}>
           <Image
             src="/characters/group-onna.png"
             alt="16女"
