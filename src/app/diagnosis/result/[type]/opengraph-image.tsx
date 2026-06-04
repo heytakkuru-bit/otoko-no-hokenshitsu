@@ -70,16 +70,15 @@ export default async function Image({ params }: { params: { type: string } }) {
     );
   }
 
-  // キャラ画像をArrayBufferとして取得し、data URLに変換（fetch失敗時はnull）
+  // キャラ画像をArrayBufferで取得
   let charImageSrc: string | null = null;
   try {
-    const res = await fetch(`${BASE_URL}/characters/${typeData.characterImageFile}`);
+    const imageUrl = `${BASE_URL}/characters/${typeData.slug}.png`;
+    const res = await fetch(imageUrl);
     if (res.ok) {
-      const buf = await res.arrayBuffer();
-      const bytes = new Uint8Array(buf);
-      let binary = '';
-      for (let i = 0; i < bytes.byteLength; i++) binary += String.fromCharCode(bytes[i]);
-      charImageSrc = `data:image/png;base64,${btoa(binary)}`;
+      const buffer = await res.arrayBuffer();
+      const base64 = Buffer.from(buffer).toString('base64');
+      charImageSrc = `data:image/png;base64,${base64}`;
     }
   } catch {
     // ignore
