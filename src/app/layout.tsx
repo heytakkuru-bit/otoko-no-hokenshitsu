@@ -10,8 +10,30 @@ const notoSansJP = Noto_Sans_JP({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://otoko-no-hokenshitsu.vercel.app'),
   title: '漢の保健室',
   description: '十人十漢 — 君はどの漢だ？16タイプ診断',
+  openGraph: {
+    title: '漢の保健室',
+    description: '十人十漢 — 君はどの漢だ？16タイプ診断',
+    url: 'https://otoko-no-hokenshitsu.vercel.app',
+    siteName: '漢の保健室',
+    images: [
+      {
+        url: '/group.png',
+        width: 1200,
+        height: 630,
+        alt: '漢の保健室 — 十人十漢',
+      },
+    ],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '漢の保健室',
+    description: '十人十漢 — 君はどの漢だ？16タイプ診断',
+    images: ['/group.png'],
+  },
 };
 
 export default function RootLayout({
