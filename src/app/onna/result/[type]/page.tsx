@@ -25,6 +25,7 @@ export default function OtokoResultPage({ params }: { params: { type: string } }
   const [todayCondition, setTodayCondition] = useState<ElementCondition | null>(null);
   const [conditionMode, setConditionMode] = useState<'full' | 'weak'>('full');
   const [shareVisible, setShareVisible] = useState(false);
+  const [saving, setSaving] = useState(false);
 
   useEffect(() => {
     const data = TYPE_MAP.get(params.type);
@@ -52,6 +53,83 @@ export default function OtokoResultPage({ params }: { params: { type: string } }
     clearAnswers();
     router.push('/onna');
   }, [router]);
+
+  const handleSave = useCallback(async () => {
+    if (!typeData) return;
+    setSaving(true);
+    try {
+      const W = 1080, H = 1080;
+      const canvas = document.createElement('canvas');
+      canvas.width = W;
+      canvas.height = H;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) throw new Error('Canvas not supported');
+
+      // ── 背景
+      ctx.fillStyle = '#0a0a0a';
+      ctx.fillRect(0, 0, W, H);
+
+      // ── キャラクター画像をBlobURLで読み込み（CORS回避）
+      const imgSrc = `/characters/${typeData.characterImageFile}`;
+      const imgBlob = await fetch(imgSrc).then((r) => r.blob());
+      const blobUrl = URL.createObjectURL(imgBlob);
+      await new Promise<void>((resolve, reject) => {
+        const img = new window.Image();
+        img.onload = () => {
+          const drawH = H * 0.78;
+          const scale = drawH / img.height;
+          const drawW = img.width * scale;
+          ctx.drawImage(img, (W - drawW) / 2, 0, drawW, drawH);
+          URL.revokeObjectURL(blobUrl);
+          resolve();
+        };
+        img.onerror = reject;
+        img.src = blobUrl;
+      });
+
+      // ── グラデーションオーバーレイ（下から黒フェード）
+      const grad = ctx.createLinearGradient(0, H * 0.42, 0, H);
+      grad.addColorStop(0, 'rgba(10,10,10,0)');
+      grad.addColorStop(0.45, 'rgba(10,10,10,0.88)');
+      grad.addColorStop(1, 'rgba(10,10,10,1)');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, W, H);
+
+      // ── テキスト描画
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'alphabetic';
+
+      // nickname（大）
+      ctx.font = '900 100px serif';
+      ctx.fillStyle = '#C8A96E';
+      ctx.shadowColor = 'rgba(200,169,110,0.5)';
+      ctx.shadowBlur = 30;
+      ctx.fillText(typeData.nickname, W / 2, H * 0.80);
+
+      // formalName（小）
+      ctx.font = '500 34px serif';
+      ctx.fillStyle = 'rgba(245,240,232,0.55)';
+      ctx.shadowBlur = 0;
+      ctx.fillText(typeData.formalName, W / 2, H * 0.87);
+
+      // サイトタグ
+      ctx.font = '300 22px serif';
+      ctx.fillStyle = 'rgba(200,169,110,0.3)';
+      ctx.letterSpacing = '8px';
+      ctx.fillText('漢 の 保 健 室', W / 2, H * 0.94);
+
+      // ── ダウンロード
+      const link = document.createElement('a');
+      link.download = `16女診断_${typeData.nickname}.png`;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    } catch (e) {
+      console.error(e);
+      alert('画像の生成に失敗しました。');
+    } finally {
+      setSaving(false);
+    }
+  }, [typeData]);
 
   const handleShare = useCallback(() => {
     if (!typeData) return;
@@ -362,6 +440,18 @@ export default function OtokoResultPage({ params }: { params: { type: string } }
           </div>
         </div>
       )}
+
+      {/* ── 画像保存ボタン ── */}
+      <div className="px-5 mb-3">
+        <button
+          onClick={handleSave}
+          disabled={saving}
+          className="w-full bg-[#1a2535] border border-[#c9a04e]/30 text-[#c9a04e] font-bold py-4 rounded-2xl
+            flex items-center justify-center gap-2 active:scale-[0.98] transition-all duration-150 disabled:opacity-50"
+        >
+          <span>{saving ? '生成中…' : '📸 結果画像を保存する'}</span>
+        </button>
+      </div>
 
       {/* ── Xシェアボタン ── */}
       <div className="px-5 mb-3">

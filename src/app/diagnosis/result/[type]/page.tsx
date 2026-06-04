@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useCallback, useRef } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import CharacterImage from '@/components/otoko/CharacterImage';
 import {
@@ -26,7 +26,6 @@ export default function OtokoResultPage({ params }: { params: { type: string } }
   const [conditionMode, setConditionMode] = useState<'full' | 'weak'>('full');
   const [shareVisible, setShareVisible] = useState(false);
   const [saving, setSaving] = useState(false);
-  const captureRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const data = TYPE_MAP.get(params.type);
@@ -56,21 +55,78 @@ export default function OtokoResultPage({ params }: { params: { type: string } }
   }, [router]);
 
   const handleSave = useCallback(async () => {
-    if (!captureRef.current || !typeData) return;
+    if (!typeData) return;
     setSaving(true);
     try {
-      const html2canvas = (await import('html2canvas')).default;
-      const canvas = await html2canvas(captureRef.current, {
-        width: 1080,
-        height: 1080,
-        scale: 1,
-        useCORS: true,
-        backgroundColor: '#0a0a0a',
+      const W = 1080, H = 1080;
+      const canvas = document.createElement('canvas');
+      canvas.width = W;
+      canvas.height = H;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) throw new Error('Canvas not supported');
+
+      // ── 背景
+      ctx.fillStyle = '#0a0a0a';
+      ctx.fillRect(0, 0, W, H);
+
+      // ── キャラクター画像をBlobURLで読み込み（CORS回避）
+      const imgSrc = `/characters/${typeData.characterImageFile}`;
+      const imgBlob = await fetch(imgSrc).then((r) => r.blob());
+      const blobUrl = URL.createObjectURL(imgBlob);
+      await new Promise<void>((resolve, reject) => {
+        const img = new window.Image();
+        img.onload = () => {
+          // キャラ画像：上75%に表示
+          const drawH = H * 0.78;
+          const scale = drawH / img.height;
+          const drawW = img.width * scale;
+          ctx.drawImage(img, (W - drawW) / 2, 0, drawW, drawH);
+          URL.revokeObjectURL(blobUrl);
+          resolve();
+        };
+        img.onerror = reject;
+        img.src = blobUrl;
       });
+
+      // ── グラデーションオーバーレイ（下から黒フェード）
+      const grad = ctx.createLinearGradient(0, H * 0.42, 0, H);
+      grad.addColorStop(0, 'rgba(10,10,10,0)');
+      grad.addColorStop(0.45, 'rgba(10,10,10,0.88)');
+      grad.addColorStop(1, 'rgba(10,10,10,1)');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, W, H);
+
+      // ── テキスト描画
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'alphabetic';
+
+      // nickname（大）
+      ctx.font = '900 100px serif';
+      ctx.fillStyle = '#C8A96E';
+      ctx.shadowColor = 'rgba(200,169,110,0.5)';
+      ctx.shadowBlur = 30;
+      ctx.fillText(typeData.nickname, W / 2, H * 0.80);
+
+      // formalName（小）
+      ctx.font = '500 34px serif';
+      ctx.fillStyle = 'rgba(245,240,232,0.55)';
+      ctx.shadowBlur = 0;
+      ctx.fillText(typeData.formalName, W / 2, H * 0.87);
+
+      // サイトタグ
+      ctx.font = '300 22px serif';
+      ctx.fillStyle = 'rgba(200,169,110,0.3)';
+      ctx.letterSpacing = '8px';
+      ctx.fillText('漢 の 保 健 室', W / 2, H * 0.94);
+
+      // ── ダウンロード
       const link = document.createElement('a');
       link.download = `16漢診断_${typeData.nickname}.png`;
       link.href = canvas.toDataURL('image/png');
       link.click();
+    } catch (e) {
+      console.error(e);
+      alert('画像の生成に失敗しました。');
     } finally {
       setSaving(false);
     }
@@ -392,63 +448,6 @@ export default function OtokoResultPage({ params }: { params: { type: string } }
           </div>
         </div>
       )}
-
-      {/* ── キャプチャ用隠しカード（画面外） ── */}
-      <div
-        ref={captureRef}
-        style={{
-          position: 'fixed',
-          left: '-9999px',
-          top: 0,
-          width: 1080,
-          height: 1080,
-          background: '#0a0a0a',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'flex-end',
-          overflow: 'hidden',
-        }}
-      >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={`/characters/${typeData.slug}.png`}
-          alt={typeData.nickname}
-          width={1080}
-          height={900}
-          crossOrigin="anonymous"
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '75%',
-            objectFit: 'cover',
-            objectPosition: 'top',
-          }}
-        />
-        <div
-          style={{
-            position: 'absolute',
-            bottom: 0,
-            left: 0,
-            right: 0,
-            height: '45%',
-            background: 'linear-gradient(to bottom, transparent, #0a0a0a 40%)',
-          }}
-        />
-        <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', paddingBottom: 64, width: '100%' }}>
-          <div style={{ color: '#C8A96E', fontSize: 96, fontWeight: 900, fontFamily: 'serif', lineHeight: 1.1 }}>
-            {typeData.nickname}
-          </div>
-          <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: 32, marginTop: 12 }}>
-            {typeData.formalName}
-          </div>
-          <div style={{ color: 'rgba(255,255,255,0.25)', fontSize: 22, marginTop: 32, letterSpacing: '0.3em' }}>
-            漢の保健室
-          </div>
-        </div>
-      </div>
 
       {/* ── 画像保存ボタン ── */}
       <div className="px-5 mb-3">
