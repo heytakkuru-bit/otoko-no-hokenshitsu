@@ -56,7 +56,8 @@ export default function OtokoResultPage({ params }: { params: { type: string } }
   const handleShare = useCallback(() => {
     if (!typeData) return;
     const text = `私は「${typeData.nickname}（${typeData.formalName}）」漢でした！\n${typeData.catchphrase}\n\n#漢の保健室 #十人十漢 #16漢パーソナリティ診断`;
-    const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
+    const pageUrl = `https://otoko-no-hokenshitsu.vercel.app/diagnosis/result/${typeData.slug}`;
+    const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(pageUrl)}`;
     window.open(url, '_blank', 'noopener');
     setShareVisible(true);
   }, [typeData]);
