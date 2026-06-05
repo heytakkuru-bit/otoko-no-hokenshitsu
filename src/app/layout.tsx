@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     siteName: '漢の保健室',
     images: [
       {
-        url: '/characters/group1.png',
+        url:'https://otoko-no-hokenshitsu.vercel.app/characters/group1.png',
         width: 1200,
         height: 630,
         alt: '漢の保健室 — 十人十漢',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: '漢の保健室',
     description: '十人十漢 — 君はどの漢だ？16タイプ診断',
-    images: ['/characters/group1.png'],
+    images: ['https://otoko-no-hokenshitsu.vercel.app/characters/group1.png'],
   },
 };
 
