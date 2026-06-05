@@ -20,17 +20,20 @@ export default async function Image({ params }: { params: { type: string } }) {
     );
   }
 
+  const imageUrl = `https://otoko-no-hokenshitsu.vercel.app/characters/${typeData.characterImageFile}`;
+  const imageData = await fetch(imageUrl).then((res) => res.arrayBuffer());
+  const base64 = Buffer.from(imageData).toString('base64');
+  const src = `data:image/png;base64,${base64}`;
+
   return new ImageResponse(
     (
       <div style={{ background: '#0a0a0a', width: '100%', height: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-        {/* キャラ画像 */}
         <img
-          src={`https://otoko-no-hokenshitsu.vercel.app/characters/${typeData.characterImageFile}`}
+          src={src}
           width={500}
           height={630}
           style={{ objectFit: 'cover', objectPosition: 'top' }}
         />
-        {/* テキスト */}
         <div style={{ display: 'flex', flexDirection: 'column', flex: 1, padding: '0 48px' }}>
           <div style={{ color: 'rgba(200,169,110,0.6)', fontSize: 18, marginBottom: 24, letterSpacing: '0.3em' }}>16漢診断</div>
           <div style={{ color: '#C8A96E', fontSize: 72, fontWeight: 700, lineHeight: 1.1, marginBottom: 24 }}>{typeData.nickname}</div>
