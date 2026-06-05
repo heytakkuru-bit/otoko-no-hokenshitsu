@@ -26,7 +26,6 @@ export default async function Image({ params }: { params: { type: string } }) {
         {/* キャラ画像 */}
         <img
           src={`https://otoko-no-hokenshitsu.vercel.app/characters/${typeData.characterImageFile}`}
-characterImageFile には ippikiookami.png のように拡張子込みのファイル名が入っているはずなので、これで一致します。
           width={500}
           height={630}
           style={{ objectFit: 'cover', objectPosition: 'top' }}
