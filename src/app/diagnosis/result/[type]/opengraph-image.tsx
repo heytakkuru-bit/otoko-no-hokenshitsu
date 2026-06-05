@@ -25,7 +25,8 @@ export default async function Image({ params }: { params: { type: string } }) {
       <div style={{ background: '#0a0a0a', width: '100%', height: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
         {/* キャラ画像 */}
         <img
-          src={`https://otoko-no-hokenshitsu.vercel.app/characters/${typeData.slug}.png`}
+          src={`https://otoko-no-hokenshitsu.vercel.app/characters/${typeData.characterImageFile}`}
+characterImageFile には ippikiookami.png のように拡張子込みのファイル名が入っているはずなので、これで一致します。
           width={500}
           height={630}
           style={{ objectFit: 'cover', objectPosition: 'top' }}
